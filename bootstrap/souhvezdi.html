@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hvězdná obloha</title>
+    <!-- Připojení CSS stylů Bootstrapu -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Připojení JavaScriptu Bootstrapu (Bundle obsahuje i Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <style>
+        /* Vlastní styly pro doroovnání výšky obrázků */
+     
+
+        .carousel-item img {
+             height: 400px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .card img {
+            height: 200px;
+            
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+      Komponenta Navbar: Hlavní navigační lišta
+      .navbar: Základní třída pro navigaci
+    -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#planety">Planety</a>
+        </li>
+
+           <li class="nav-item">
+          <a class="nav-link" href="#konstelace">Konstelace</a>
+        </li>
+
+           <li class="nav-item">
+          <a class="nav-link" href="#hvezdna_obloha">Hvěhdná obloha</a>
+        </li>
+     
+       
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+    <!-- 
+      Komponenta CAROUSEL (Kolotoč/Slideshow)
+      .carousel: Základní třída komponenty
+      .slide: Přidává animaci přechodu
+      data-bs-ride="carousel" (není zde, ale často se používá pro automatické spuštění)
+    -->
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/slunce.jpg" class="d-block w-100" alt="slunce">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/jupiter.jpg" class="d-block w-100" alt="jupiter">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/saturn.jpg" class="d-block w-100" alt="saturn">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    <!-- 
+      HLAVNI KONTEJNER ===========================================================================
+      .container: Kontejner s pevnou šířkou, která se mění podle breakpointů (centruje obsah)
+    -->
+    <div class="container">
+        <!-- 
+          Pomocné třídy (Utilities)
+          .text-center: Vycentruje text
+          .p-1: Malý padding (vnitřní odsazení)
+          .mb-3: Střední margin bottom (vnější odsazení dole)
+          .mt-1: Malý margin top (vnější odsazení nahoře)
+        --> <!-- 
+          .w-100: Width 100%
+          .bg-dark-subtle: Jemné tmavé pozadí
+          .p-5: Velký padding
+          .mb-3: Střední margin bottom
+          .rounded-3: Středně zaoblené rohy
+          H1 - text-center p-1 mb-3 mt-1
+          další clasa - w-100 bg-dark-subtle p-5 mb-3 rounded-3
+        -->
+        <div class="container">
+            
+        <h1 class="text-center p-5 mb-3 mt-1">Sluneční soustava</h1>
+       
+            <p>
+                Sluneční soustava je planetární systém hvězdy známé pod názvem Slunce, ve kterém se nachází planeta
+                Země.
+
+                Systém tvoří především 8 planet, 5 trpasličích planet, přes 300 měsíců planet (především u Jupiteru,
+                Saturnu, Uranu a Neptunu) a další menší tělesa jako planetky, komety, meteoroidy apod., které jsou
+                soustředěny především v Hlavním pásu uvnitř soustavy a Kuiperově pásu na jejím okraji. Předpokládá se,
+                že Sluneční soustavu ještě obklopuje Oortův oblak.
+
+                Sluneční soustava je součástí Galaxie tradičně též nazývané Mléčná dráha. Ta je dále součástí tzv.
+                Místní skupiny galaxií, kam patří galaxie M 31 v Andromedě a přes 30 dalších menších vesmírných objektů.
+                Místní skupina galaxií pak patří do Místní nadkupy galaxií (Supergalaxie).
+            </p>
+            <!-- 
+              .btn: Základní styl tlačítka
+              .btn-primary: Modré (primární) tlačítko
+              .btn-lg: Velké tlačítko
+            -->
+            <button type="button" class="btn btn-primary btn-lg ">Sluneční soustava</button>
+        </div>
+        <!-- .fs-1: (Font Size 1) Největší velikost písma 
+         H2 - fs-1 p-1 mt-1 mb-3 text-center 
+         -->
+        <h2 id="planety" class="fs-1 p-1 mt-1 mb-3 text-center">Objekty sluneční soustavy</h2>
+
+        <!-- ZDE ZAČÍNAJI KARTY PLANET ===================================================================
+          Grid systém (Mřížka)
+          .row: Definuje řádek, který obsahuje sloupce
+
+        -->
+        <div class="row">
+            <!-- .col: Definuje sloupec. Bez čísla se sloupce v řádku rovnoměrně rozdělí. -->
+            <div class="col">
+                <!-- Karta 1  ================================================================================ -->
+                <!-- 
+                  Komponenta Card (Karta)
+                  .card: Základní kontejner karty
+                  druhy class - card-body
+                  P - card-text
+                -->
+                <div class="card">
+                    <!-- .card-img-top: Umístí obrázek na vrchol karty -->
+                    <img src="img/slunce.jpg" class="card-img-top" alt="...">
+                    <!-- .card-body: Kontejner pro obsah karty -->
+                    <div class="card-body">
+                        <!-- .card-title: Styl pro nadpis karty -->
+                        <h5 id="slunce" class="card-title">Slunce</h5>
+                        <!-- .card-text: Styl pro text v kartě -->
+                        <p class="card-text">
+                            Slunce je hvězda ve středu Sluneční soustavy. Od Země je vzdálena 1 au (asi 150 milionů km),
+                            jde tedy o
+                            hvězdu nejbližší Zemi. Obíhá okolo středu Mléčné dráhy ve vzdálenosti od 25-28 tisíc
+                            světelných let.
+                            Oběh trvá přibližně 226 milionů let. Hmotnost Slunce je asi 330000krát větší než hmotnost
+                            Země a
+                            představuje 99,8 % hmotnosti sluneční soustavy, ale jen asi 2 % jejího momentu hybnosti.
+                            Astronomický symbol pro Slunce ☉
+                        </p>
+                        <a href="#" class="btn btn-primary">Číst více</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Karta 2  ================================================================================ -->
+                <div class="card">
+                    <img src="img/jupiter.jpg" class="card-img-top" alt="...">
+                    <div class="card-title">
+                        <h5 class="card-body">Jupiter</h5>
+                        <p class="card-text">
+                            Jupiter je největší planeta sluneční soustavy, v pořadí pátá od Slunce. Má hmotnost
+                            přibližně jedné tisíciny Slunce, což je přibližně 2,5x více než všechny ostatní planety (a
+                            další menší tělesa) v soustavě dohromady, proto je sluneční soustava někdy popisována jako
+                            dvojsystém Slunce a Jupitera. Planety Jupiter, Saturn, Uran a Neptun jsou označovány jako
+                            plynní obři či planety jupiterského typu. Astronomický symbol pro Saturn je: ♃
+                        </p>
+                        <a href="#" class="btn btn-primary">Číst více</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Karta 3  ================================================================================ -->
+                <div class="card">
+                    <img src="img/Saturn.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Saturn</h5>
+                        <p class="card-text">
+                            Saturn je v pořadí planet na šestém místě a po Jupiteru druhá největší planeta sluneční
+                            soustavy. Planeta byla pozorována již starověkými astronomy a byla pojmenována po římském
+                            bohu Saturnovi, který byl obdobou řeckého boha Krona. Starší české jméno pro tuto planetu
+                            bylo Hladolet. Saturn patří mezi velké plynné obry, pro které je typické, že nemají pevný
+                            povrch, ale pouze hustou atmosféru. Astronomický symbol pro Saturn je ♄.
+                        </p>
+                        <a href="#" class="btn btn-primary">Číst více</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hvězdné konstelace -->
+
+    <h3 id="konstelace" class="fs-1 p-1 mt-1 mb-3 text-center">Konstelace hvězd na obloze</h3>
+    <!-- 
+      Flexbox utility
+      .d-flex: Zapne display: flex
+      .justify-content-center: Vycentruje obsah horizontálně
+      .mb-5: Velký margin bottom
+    -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="img/starmap-large_black.png" class="d-block v-100" alt="hvězdná obloha">
+    </div>
+
+    <!-- Pata stránky-->
+    <footer>
+        <!-- 
+          .bg-dark: Tmavé pozadí
+          .text-white: Bílý text
+          .text-center: Vycentrovat text
+          .p-3: Střední padding
+        -->
+        <div class="bg-dark text-white text-center p-3">
+            © 2025 Hvězdná obloha. Bootstrap tutorial, Elen
+        </div>
+    </footer>
+
+</body>
+
+</html>
