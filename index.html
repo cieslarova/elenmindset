@@ -5,14 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPortfolio</title>
     <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-  rel="stylesheet">
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
     <style>
         footer {
             text-align: center;
             margin-top: 20px;
             padding: 10px;
             background-color: #f1f1f1;
+        }
+
+        .portfolio-item {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .portfolio-item img {
+            display: block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            filter: brightness(0.6);
+            transform: scale(1.03);
+        }
+
+        .portfolio-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-item:hover .portfolio-text {
+            opacity: 1;
         }
     </style>
 </head>
@@ -21,12 +56,24 @@
         <h1>EC portfolio</h1>
     </header>
     <div>
-<div class="d-flex justify-content-center gap-3 my-4">
-    <a href="/kamen/indexele.html"><img src="/img/kamen.png" alt=""></a>
-    <a href="/lidovky/zkouskalid.html"><img src="/img/lidovky.png" alt=""></a>
-    <a href="/bootstrap/souhvezdi.html"><img src="/bootstrap/img/souhvezdi250.jpg" alt=""></a>
-    <a href="/iluminat/ilum.html"><img src="/img/iluminati.png" alt=""></a>
-</div>
+        <div class="d-flex justify-content-center gap-3 my-4">
+            <a href="/kamen/indexele.html" class="portfolio-item">
+                <img src="/img/kamen.png" alt="" class="img-fluid">
+                <div class="portfolio-text">Kámen</div>
+            </a>
+            <a href="/lidovky/zkouskalid.html" class="portfolio-item">
+                <img src="/img/lidovky.png" alt="" class="img-fluid">
+                <div class="portfolio-text">Lidovky</div>
+            </a>
+            <a href="/bootstrap/souhvezdi.html" class="portfolio-item">
+                <img src="/bootstrap/img/souhvezdi250.jpg" alt="" class="img-fluid">
+                <div class="portfolio-text">Souhvězdí</div>
+            </a>
+            <a href="/iluminat/ilum.html" class="portfolio-item">
+                <img src="/img/iluminati.png" alt="" class="img-fluid">
+                <div class="portfolio-text">Ilumináti</div>
+            </a>
+        </div>
     </div>
     <footer>
         <p>© 2025 EC portfolio</p>
