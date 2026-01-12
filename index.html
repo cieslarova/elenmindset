@@ -7,71 +7,41 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet">
-    <style>
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f1f1f1;
-        }
-
-        .portfolio-item {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-        }
-
-        .portfolio-item img {
-            display: block;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .portfolio-item:hover img {
-            filter: brightness(0.6);
-            transform: scale(1.03);
-        }
-
-        .portfolio-text {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 600;
-            font-size: 1.1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .portfolio-item:hover .portfolio-text {
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <header class="text-center my-4">
         <h1>EC portfolio</h1>
     </header>
-    <div>
-        <div class="d-flex justify-content-center gap-3 my-4">
-            <a href="/kamen/indexele.html" class="portfolio-item">
+    <div class="container my-4 portfolio-container">
+        <div class="row justify-content-center g-3">
+            <a href="/kamen/indexele.html" class="portfolio-item col-12 col-md-4">
                 <img src="/img/kamen.png" alt="" class="img-fluid">
                 <div class="portfolio-text">Kámen</div>
             </a>
-            <a href="/lidovky/zkouskalid.html" class="portfolio-item">
+            <a href="/lidovky/zkouskalid.html" class="portfolio-item col-12 col-md-4">
                 <img src="/img/lidovky.png" alt="" class="img-fluid">
                 <div class="portfolio-text">Lidovky</div>
             </a>
-            <a href="/bootstrap/souhvezdi.html" class="portfolio-item">
+            <a href="/bootstrap/souhvezdi.html" class="portfolio-item col-12 col-md-4">
                 <img src="/bootstrap/img/souhvezdi250.jpg" alt="" class="img-fluid">
                 <div class="portfolio-text">Souhvězdí</div>
             </a>
-            <a href="/iluminat/ilum.html" class="portfolio-item">
+            <a href="/iluminat/ilum.html" class="portfolio-item col-12 col-md-4">
                 <img src="/img/iluminati.png" alt="" class="img-fluid">
                 <div class="portfolio-text">Ilumináti</div>
+            </a>
+            <a href="/had/had.html" class="portfolio-item col-12 col-md-4">
+                <img src="/img/had.png" alt="" class="img-fluid">
+                <div class="portfolio-text">Had</div>
+            </a>
+            <a href="/qrcode/index.html" class="portfolio-item col-12 col-md-4">
+                <img src="/img/QRcode.png" alt="" class="img-fluid">
+                <div class="portfolio-text">QR Code</div>
+            </a>
+            <a href="/zachytavac/index.html" class="portfolio-item col-12 col-md-4">
+                <img src="/img/zachytavac.png" alt="" class="img-fluid">
+                <div class="portfolio-text">Zachytávač</div>
             </a>
         </div>
     </div>

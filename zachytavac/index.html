@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Získat Titulek Stránky</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Zachytávač titulků webových stránek</h1>
+        <p class="subtitle">Zadejte URL webové stránky a získejte titulek stránky</p>
+        <p>Například: https://zszatopkovych.eu/</p><br>
+        <div class="input-skupina">
+            <input type="url" id="urlInput" placeholder="https://elenmindset.com/" required>
+        </div>
+
+        <button id="btnZiskatTitulek">Získat Titulek</button>
+
+        <div id="vysledek">
+            <span class="label">Výsledek</span>
+            <div id="titleObsah" class="title-obsah"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

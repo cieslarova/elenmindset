@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="card">
+        <div class="header">
+            <h1>QR Generátor</h1>
+            <p>Proměnte své odkazy nebo text na QR kód.</p>
+        </div>
+
+        <form id="qrForm">
+            <div class="input-group">
+                <input type="text" id="textInput" placeholder="Zadejte text nebo URL" required autocomplete="off">
+                <label for="textInput">Zadejte text nebo URL</label>
+            </div>
+
+            <button type="submit" id="generateBtn">
+                <span>Vygenerovat QR kód</span>
+                <div class="loader" id="loader"></div>
+            </button>
+        </form>
+
+        <div class="result-container" id="resultContainer">
+            <img id="qrImage" src="" alt="Vygenerovaný QR kód">
+            <a id="downloadLink" href="#" download="qrcode.png">Stáhnout obrázek</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
