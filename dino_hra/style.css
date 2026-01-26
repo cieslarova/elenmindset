@@ -1,0 +1,85 @@
+body {
+    background-color: #7a7a7a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    border: 2px solid #000000;
+    background-color: #00fbff;
+
+    /* Responzivní nastavení - aby se hra zmenšila na mobilu */
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Odstraní mezeru pod canvasem */
+}
+
+#jumpBtn {
+    display: none;
+    /* Skryté ve výchozím stavu - ukáže se jen na mobilu přes JS */
+
+    /* Responzivní pozice */
+    position: absolute;
+    right: 2%;
+    bottom: 10%;
+
+    /* Responzivní velikost - 15% šířky obrazovky */
+    width: 15vw;
+    height: 10vw;
+
+    /* Limity */
+    max-width: 120px;
+    min-width: 80px;
+    max-height: 80px;
+    min-height: 50px;
+
+    border-radius: 50px;
+
+    /* Styl */
+    margin: 0;
+    /* Reset marginu */
+    padding: 0;
+
+    background-color: #ff6b81;
+    color: white;
+    font-family: 'Comic Neue', cursive, sans-serif;
+
+    /* Responzivní písmo */
+    font-size: min(5vw, 24px);
+
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px #ff415e;
+
+    justify-content: center;
+    align-items: center;
+
+    /* Zákaz výběru textu */
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    z-index: 1000;
+}
+
+#jumpBtn:active {
+    transform: translateY(3px) translateY(3px);
+    box-shadow: 0 5px #ff1733;
+
+}
+
+#gameContainer {
+    position: relative;
+    display: block;
+    /* Místo inline-block, aby to mohlo být na střed */
+    width: 100%;
+    max-width: 800px;
+    /* Maximální šířka hry */
+    margin: 0 auto;
+    /* Vycentrování */
+}
