@@ -4,7 +4,7 @@ const kreslic = platno.getContext('2d');
 
 const velikost_bloku = 10;
 const barva_pozadi = 'black';
-const barva_hada = 'lime';
+let barva_hada = 'lime';
 let barva_jidla = "red";
 const barvy_jidla = ["lime", "pink", "blue", "yellow", "cyan", "green", "purple"]
 
@@ -25,58 +25,47 @@ let hraBezi = false; // na zacatku hra není bezi
 
 
 function herniSmycka() {
-    if (!hraBezi) {
-        kreslic.fillStyle = barva_pozadi;
-        kreslic.fillRect(0, 0, platno.width, platno.height);
 
-        kreslic.fillStyle = 'white';
-        kreslic.font = '20px Arial';
-        kreslic.fillText('Had', 10, 20);
-
-        kreslic.font = '20px Arial';
-        kreslic.fillText('Stiskni Enter pro zacatek hry', 10, 40);
-        kreslic.fillText('Stiskni Mezerník pro pauzu', 10, 60);
-        kreslic.fillText('Tvůj rekord: ' + rekord, 10, 80);
-        return;
-    }
     // vypocet nove polohy hada
-    if (pauza) return; // pokud je pauza, ukončíme funkci
-    let novaX = had[0].x + dx;
-    let novaY = had[0].y + dy;
-    // teleportace
-    if (novaX >= platno.width) novaX = 0;
-    if (novaX < 0) novaX = platno.width - velikost_bloku;
+    if (hraBezi && !pauza) {
+        let novaX = had[0].x + dx;
+        let novaY = had[0].y + dy;
+        // teleportace
+        if (novaX >= platno.width) novaX = 0;
+        if (novaX < 0) novaX = platno.width - velikost_bloku;
 
-    if (novaY >= platno.height) novaY = 0;
-    if (novaY < 0) novaY = platno.height - velikost_bloku;
+        if (novaY >= platno.height) novaY = 0;
+        if (novaY < 0) novaY = platno.height - velikost_bloku;
 
-    const hlava = { x: novaX, y: novaY };
+        const hlava = { x: novaX, y: novaY };
 
 
 
-    had.unshift(hlava);
-    // pokud ma hlava stejnou pozici jako jídlo
-    if (had[0].x === jidloX && had[0].y === jidloY) {
-        // vygeneruje nove jídlo jinde
-        jidloX = nahodneCislo(0, platno.width);
-        jidloY = nahodneCislo(0, platno.height);
-        barva_jidla = barvy_jidla[Math.floor(Math.random() * barvy_jidla.length)];
-    } else {
-        // pokud jsme nic nesnedli . uríznemu ocas
-        had.pop();
-    }
-    // tohle kontroluje jestli had nenarazil na ocas
-    for (let i = 1; i < had.length; i++) {
+        had.unshift(hlava);
+        // pokud ma hlava stejnou pozici jako jídlo
+        if (had[0].x === jidloX && had[0].y === jidloY) {
+            // vygeneruje nove jídlo jinde
+            jidloX = nahodneCislo(0, platno.width);
+            jidloY = nahodneCislo(0, platno.height);
+            barva_jidla = barvy_jidla[Math.floor(Math.random() * barvy_jidla.length)];
+            barva_hada = barvy_jidla[Math.floor(Math.random() * barvy_jidla.length)];
+        } else {
+            // pokud jsme nic nesnedli . uríznemu ocas
+            had.pop();
+        }
         // tohle kontroluje jestli had nenarazil na ocas
-        if (had[i].x === had[0].x && had[i].y === had[0].y) {
-            let skore = had.length - 3;
-            if (skore > rekord) {
-                localStorage.setItem('rekord', skore);
+        for (let i = 1; i < had.length; i++) {
+            // tohle kontroluje jestli had nenarazil na ocas
+            if (had[i].x === had[0].x && had[i].y === had[0].y) {
+                let skore = had.length - 3;
+                if (skore > rekord) {
+                    localStorage.setItem('rekord', skore);
+                }
+                // game over
+                console.log('Game Over! Skore: ' + (had.length - 3));
+                location.reload(); // restart hry
+                return;
             }
-            // game over
-            alert('Game Over! Skore: ' + (had.length - 3));
-            location.reload(); // restart hry
-            return;
         }
     }
 
@@ -93,9 +82,23 @@ function herniSmycka() {
         kreslic.fillRect(kousek.x, kousek.y, velikost_bloku, velikost_bloku);
     }
     kreslic.fillStyle = 'white';
-    kreslic.font = '20px Arial';
+    kreslic.font = '20px comic sans ms';
     kreslic.fillText('Skore: ' + (had.length - 3), 10, 20);
     kreslic.fillText('Rekord: ' + rekord, 450, 20);
+
+    // MENU PŘES HRU (jen když se nehraje)
+    if (!hraBezi) {
+        // Poloprůhledná černá (poslední číslo 0.5 je 50% průhlednost)
+        kreslic.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        kreslic.fillRect(0, 0, platno.width, platno.height);
+        kreslic.fillStyle = 'white';
+        kreslic.textAlign = "center"; // Zarovná text na střed
+        kreslic.font = '40px comic sans ms';
+        kreslic.fillText('HAD', platno.width / 2, platno.height / 2 - 20);
+        kreslic.font = '20px comic sans ms';
+        kreslic.fillText('Stiskni ENTER pro start', platno.width / 2, platno.height / 2 + 20);
+        kreslic.textAlign = "left"; // Vrátíme zarovnání zpět doleva
+    }
 
 
 }
@@ -118,20 +121,14 @@ document.addEventListener('keydown', function (event) {
         dy = 0;
     }
 
-    if (event.key === ' ') {
-        pauza = !pauza;
-        if (pauza) {
-            kreslic.fillStyle = 'white';
-            kreslic.font = '30px Arial';
-            kreslic.textAlign = "center";
-            kreslic.fillText('PAUZA', platno.width / 2, platno.height / 2);
-            kreslic.textAlign = "left";
-        }
-    }
 
-    if (event.key === 'Enter' && !hraBezi) {
+
+
+    // Start hry Mezerníkem (pokud hra neběží)
+    if (event.key === ' ' && !hraBezi) {
         hraBezi = true;
     }
+
 })
 
 function nahodneCislo(min, max) {
