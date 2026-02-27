@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Skew Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 p-8 font-sans">
+    <header>
+<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <a href="../index.html#domu" class="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">MojeLogo</a>
+  <ul class="flex space-x-6 text-gray-700 font-bold">
+    <li><a href="../index.html#domu" class="hover:text-blue-500">Domů</a></li>
+    <li><a href="../index.html#o-nas" class="hover:text-blue-500">O nás</a></li>
+    <li><a href="../index.html#contactLink" class="hover:text-blue-500">Kontakt</a></li>
+  </ul>
+</nav>
+    </header>
+    <div class="max-w-4xl mx-auto space-y-14">
+        
+        <header class="text-center space-y-4">
+            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Tailwind CSS Transform</h1>
+            <p class="text-slate-500 text-lg">Ukázky transformací: Scale, Rotate, Translate, Skew a Origin.</p>
+        </header>
+
+        <!-- Sekce 1: Scale (Měřítko) -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Scale (Zvětšení / Zmenšení)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Scale 75% -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">scale-75</p>
+                    <div class="w-24 h-24 bg-blue-500 rounded-lg shadow-lg scale-75 flex items-center justify-center text-white font-bold">
+                        75%
+                    </div>
+                </div>
+                <!-- Scale 100% (Default) -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">scale-100</p>
+                    <div class="w-24 h-24 bg-blue-500 rounded-lg shadow-lg scale-100 flex items-center justify-center text-white font-bold">
+                        100%
+                    </div>
+                </div>
+                <!-- Scale 125% -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">scale-125</p>
+                    <div class="w-24 h-24 bg-blue-500 rounded-lg shadow-lg scale-125 flex items-center justify-center text-white font-bold">
+                        125%
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekce 2: Rotate (Rotace) -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Rotate (Rotace)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Rotate 0 -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">rotate-0</p>
+                    <div class="w-24 h-24 bg-emerald-500 rounded-lg shadow-lg rotate-0 flex items-center justify-center text-white font-bold">
+                        0°
+                    </div>
+                </div>
+                <!-- Rotate 45 -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">rotate-45</p>
+                    <div class="w-24 h-24 bg-emerald-500 rounded-lg shadow-lg rotate-45 flex items-center justify-center text-white font-bold">
+                        45°
+                    </div>
+                </div>
+                <!-- Rotate 90 -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">rotate-90</p>
+                    <div class="w-24 h-24 bg-emerald-500 rounded-lg shadow-lg rotate-90 flex items-center justify-center text-white font-bold">
+                        90°
+                    </div>
+                </div>
+                <!-- Rotate 180 -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">rotate-180</p>
+                    <div class="w-24 h-24 bg-emerald-500 rounded-lg shadow-lg rotate-180 flex items-center justify-center text-white font-bold">
+                        180°
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekce 3: Translate (Posun) -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Translate (Posun)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-200 p-8 rounded-xl overflow-hidden">
+                <!-- Translate X -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">hover:translate-x-6</p>
+                    <div class="w-24 h-24 bg-amber-500 rounded-lg shadow-lg transition-transform hover:translate-x-6 flex items-center justify-center text-white font-bold cursor-pointer">
+                        Hover Me
+                    </div>
+                </div>
+                <!-- Translate Y -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">hover:-translate-y-6</p>
+                    <div class="w-24 h-24 bg-amber-500 rounded-lg shadow-lg transition-transform hover:-translate-y-6 flex items-center justify-center text-white font-bold cursor-pointer">
+                        Hover Me
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekce 4: Skew (Zkosení) -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Skew (Zkosení)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Skew X -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">skew-x-12</p>
+                    <div class="w-24 h-24 bg-purple-500 rounded-lg shadow-lg skew-x-12 flex items-center justify-center text-white font-bold">
+                        Skew X
+                    </div>
+                </div>
+                <!-- Skew Y (Původní příklad) -->
+                <div class="flex flex-col items-center">
+                    <p class="mb-2 text-sm text-slate-500">skew-y-3 md:transform-none</p>
+                    <div class="w-64 h-24 bg-purple-600 rounded-lg shadow-lg skew-y-3 md:transform-none transition-all duration-500 flex items-center justify-center text-white font-bold text-center px-4">
+                        Responzivní Skew Y
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekce 5: Transform Origin (Bod transformace) -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Transform Origin</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Origin Top Left -->
+                <div class="flex flex-col items-center group">
+                    <p class="mb-2 text-sm text-slate-500">origin-top-left</p>
+                    <div class="relative w-24 h-24 bg-slate-200 rounded-lg border-2 border-dashed border-slate-300">
+                        <div class="absolute inset-0 bg-rose-500 rounded-lg shadow-lg origin-top-left transition-transform duration-300 group-hover:rotate-12 flex items-center justify-center text-white font-bold opacity-80">
+                            Rotace
+                        </div>
+                        <div class="absolute top-0 left-0 w-3 h-3 bg-black rounded-full -ml-1.5 -mt-1.5 z-10"></div>
+                    </div>
+                </div>
+                <!-- Origin Center -->
+                <div class="flex flex-col items-center group">
+                    <p class="mb-2 text-sm text-slate-500">origin-center</p>
+                    <div class="relative w-24 h-24 bg-slate-200 rounded-lg border-2 border-dashed border-slate-300">
+                        <div class="absolute inset-0 bg-rose-500 rounded-lg shadow-lg origin-center transition-transform duration-300 group-hover:rotate-45 flex items-center justify-center text-white font-bold opacity-80">
+                            Rotace
+                        </div>
+                        <div class="absolute top-1/2 left-1/2 w-3 h-3 bg-black rounded-full -ml-1.5 -mt-1.5 z-10"></div>
+                    </div>
+                </div>
+                <!-- Origin Bottom Right -->
+                <div class="flex flex-col items-center group">
+                    <p class="mb-2 text-sm text-slate-500">origin-bottom-right</p>
+                    <div class="relative w-24 h-24 bg-slate-200 rounded-lg border-2 border-dashed border-slate-300">
+                        <div class="absolute inset-0 bg-rose-500 rounded-lg shadow-lg origin-bottom-right transition-transform duration-300 group-hover:-rotate-12 flex items-center justify-center text-white font-bold opacity-80">
+                            Rotace
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 bg-black rounded-full -mr-1.5 -mb-1.5 z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

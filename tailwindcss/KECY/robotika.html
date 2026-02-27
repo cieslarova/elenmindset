@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotika</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../script.js" defer></script>
+</head>
+
+<style>
+    /* Reset globalní pozadí z CSS souboru pro tuto podstránku */
+    body, html {
+        background-image: none !important;
+        background-color: transparent !important; 
+        /* Případně černá, aby to nebliklo bíle při načítání */
+        
+        
+    }
+
+    html {
+    background-image: url('../img/pozadi_5-kopie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+</style>
+
+<body>
+    <div class=" fixed inset-0 -z-50 bg-[url('../img/pozadi_5.jpg')] bg-cover bg-center brightness-[60%]"></div>
+    <div class="max-w-4xl mx-auto mt-0 mb-0 min-h-screen shadow-2xl backdrop-blur-sm p-12 relative overflow-hidden flex flex-col">
+        <!-- Pozadí obsahu (obrázek s průhledností) -->
+        <div class="absolute inset-0 bg-[url('../img/pozadi_3.jpg')] bg-cover bg-center bg-no-repeat -z-20 opacity-30"></div>
+        
+        <!-- Overlay pro lepší čitelnost textu (ztmavení) -->
+        <div class="absolute inset-0 bg-black/60 -z-10"></div>
+        
+        <header>
+            <nav class="p-8 flex justify-between items-center text-gray-800 bg-white/10 shadow-md">
+                <a href="../index.html#domu" class="font-bold text-white text-xl hover:text-blue-500 transition-colors cursor-pointer">Moje Logo</a>
+                <ul class="flex gap-4 font-bold">
+                    <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#domu">Domů</a></li>
+                    <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#o-nas">O nás</a></li>
+                    <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#contactLink">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        
+
+        <div class="text-white text-center p-12 pt-0">
+            <h1 class="font-orbitron text-orange-400 font-bold text-[50px] mb-8">Robotika</h1>
+            <div class="mb-12 p-8 flex flex-col items-center justify-center text-white bg-black/70">
+            <p class="font-orbitron text-[20px] leading-relaxed">
+                Vítejte na stránce o Robotice. Zde se dozvíte vše o našich robotických projektech, soutěžích a kroužcích.
+                <br><br>
+                Stavíme roboty z LEGO Mindstorms, Arduino i vlastních tištěných dílů.
+            </p>
+            </div>
+            <hr class="my-14 border-2 border-orange-400 w-full">
+            <div class="flex justify-center mt-8 mb-8">
+            <img src="../img/robotika.jpg" alt="robotika" class="w-[600px] h-[337px] object-cover shadow-lg">
+        </div>
+        <hr class="my-14 border-2 border-orange-400 w-full">
+        </div>
+
+    <footer class="w-full mt-auto">
+        <nav class="p-8 flex justify-between shadow-lg items-center bg-white/10">
+           <p class="font-jura text-white">&copy; 2026 Tria Robolab </p> 
+           <p class="font-jura text-white flex items-center justify-center gap-2 elen_heart_container"> 
+               made with <span class="heart_icon inline-block w-5 h-5 transition-all duration-300"></span> Elen Cieslarová 
+           </p>
+        </nav>
+    </footer>
+    </div>
+
+
+
+
+</body>
+</html>

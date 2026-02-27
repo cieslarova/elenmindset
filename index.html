@@ -1,61 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyPortfolio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-      rel="stylesheet">
+    <title>Elen | Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header class="text-center my-4">
-        <h1>Portfolio</h1>
+    <header class="hero-section text-center">
+        <h1 class="hero-title">Moje Kreativní Cesta</h1>
+        <p class="hero-subtitle">Prozkoumejte projekty, na kterých jsem pracovala. Od her až po webové aplikace.</p>
     </header>
-    <div class="container my-4 portfolio-container">
-        <div class="row justify-content-center g-3">
-            <a href="/kamen/indexele.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/kamen.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Kámen</div>
-            </a>
-            <a href="/lidovky/zkouskalid.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/lidovky.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Lidovky</div>
-            </a>
-            <a href="/bootstrap/souhvezdi.html" class="portfolio-item col-12 col-md-4">
-                <img src="/bootstrap/img/souhvezdi250.jpg" alt="" class="img-fluid">
-                <div class="portfolio-text">Souhvězdí</div>
-            </a>
-            <a href="/iluminat/ilum.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/iluminati.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Ilumináti</div>
-            </a>
-            <a href="/had/had.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/had.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Had</div>
-            </a>
-            <a href="/qrcode/index.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/QRcode.png" alt="" class="img-fluid">
-                <div class="portfolio-text">QR Code</div>
-            </a>
-            <a href="/zachytavac/index.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/zachytavac.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Zachytávač</div>
-            </a>
-            <a href="/dino_hra/index.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/dino.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Dino hra</div>
-            </a>
-            <a href="/flappy_bird/index.html" class="portfolio-item col-12 col-md-4">
-                <img src="/img/flappy.png" alt="" class="img-fluid">
-                <div class="portfolio-text">Flappy Bird</div>
-            </a>
+
+    <div class="container mb-5 portfolio-container">
+        <div class="row justify-content-center g-4">
+            
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/tailwindcss/index.html" class="portfolio-item">
+                    <img src="/img/robolab.png" alt="ROBOLAB">
+                    <div class="portfolio-text"><span>ROBOLAB</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/flappy_bird/index.html" class="portfolio-item">
+                    <img src="/img/flappy.png" alt="Flappy Bird">
+                    <div class="portfolio-text"><span>Flappy Bird</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/dino_hra/index.html" class="portfolio-item">
+                    <img src="/img/dino.png" alt="Dino hra">
+                    <div class="portfolio-text"><span>Dino hra</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/zachytavac/index.html" class="portfolio-item">
+                    <img src="/img/zachytavac.png" alt="Zachytávač">
+                    <div class="portfolio-text"><span>Zachytávač</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/qrcode/index.html" class="portfolio-item">
+                    <img src="/img/QRcode.png" alt="QR Code">
+                    <div class="portfolio-text"><span>QR Code</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/had/had.html" class="portfolio-item">
+                    <img src="/img/had.png" alt="Had">
+                    <div class="portfolio-text"><span>Had</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/iluminat/ilum.html" class="portfolio-item">
+                    <img src="/img/iluminati.png" alt="Ilumináti">
+                    <div class="portfolio-text"><span>Ilumináti</span></div>
+                </a>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/bootstrap/souhvezdi.html" class="portfolio-item">
+                    <img src="/bootstrap/img/souhvezdi250.jpg" alt="Souhvězdí">
+                    <div class="portfolio-text"><span>Souhvězdí</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/lidovky/zkouskalid.html" class="portfolio-item">
+                    <img src="/img/lidovky.png" alt="Lidovky">
+                    <div class="portfolio-text"><span>Lidovky</span></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <a href="/kamen/indexele.html" class="portfolio-item">
+                    <img src="/img/kamen.png" alt="Kámen nůžky papír">
+                    <div class="portfolio-text"><span>Kámen nůžky papír</span></div>
+                </a>
+            </div>
+
         </div>
     </div>
+    
     <footer>
         <p>© 2025 EC portfolio</p>
-        <a href="https://github.com/cieslarova/elenmindset">Portfolio Github</a>
+        <a href="https://github.com/cieslarova/elenmindset" target="_blank">Portfolio Github</a>
     </footer>
 </body>
 </html>

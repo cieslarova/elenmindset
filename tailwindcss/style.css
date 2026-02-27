@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Orbitron:wght@400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .font-jura {
+        font-family: 'Jura', sans-serif;
+    }
+
+}
+
+body {
+    background-image: url('img/pozadi_3.jpg');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    min-height: 100vh;
+
+}
+
+html {
+    background-image: url('img/pozadi_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Hover efekt pro patičkové srdíčko z index.html (třídy navazují např. s Tailwindem) */
+.elen_heart_container .heart_icon {
+    display: inline-block;
+    background-image: url('img/srdce_sede.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .3s;
+}
+
+.elen_heart_container:hover .heart_icon {
+    background-image: url('img/srdce_cervene.png');
+}

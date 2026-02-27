@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nová 3D tiskárna!</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../script.js" defer></script>
+</head>
+
+<style>
+    /* Reset globalní pozadí z CSS souboru pro tuto podstránku */
+    body, html {
+        background-image: none !important;
+        background-color: transparent !important; 
+        /* Případně černá, aby to nebliklo bíle při načítání */
+    }
+</style>
+
+<body>
+    <div class="fixed inset-0 -z-50 bg-cover bg-center brightness-[70%]" style="background-image: url('../img/pozadi_7.jpg');"></div>
+    <div class="max-w-4xl mx-auto mt-0 mb-0 min-h-screen shadow-2xl backdrop-blur-sm p-12 relative overflow-hidden flex flex-col">
+        <!-- Pozadí obsahu (obrázek s průhledností) -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20 opacity-80" style="background-image: url('../img/pozadi_7-kopie.jpg');"></div>
+        
+        <!-- Overlay pro lepší čitelnost textu (ztmavení) -->
+        <div class="absolute inset-0 bg-black/60 -z-10"></div>
+    <header>
+        <nav class="p-8 flex justify-between items-center text-gray-800 bg-white/10 shadow-md">
+            <a href="../index.html#domu" class="font-bold text-white text-xl hover:text-blue-500 transition-colors cursor-pointer">Moje Logo</a>
+            <ul class="flex gap-4 font-bold">
+                <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#domu">Domů</a></li>
+                <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#o-nas">O nás</a></li>
+                <li class="hover:text-blue-500 text-white cursor-pointer"><a href="../index.html#contactLink">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="text-white max-w-6xl mx-auto mt-8 mb-4 p-8">
+        <h1 class="font-orbitron font-bold text-orange-400 text-[20px] mb-8">5.2.
+            <br>
+            <span class="text-white text-[50px]">Nová 3D tiskárna!</span>
+        </h1>
+        <!-- Plovoucí panel s první fotkou zarovnaný doprava -->
+        <div class="float-right ml-8 mb-4 flex flex-col gap-4 items-center w-[250px]">
+             <!-- První obrázek napravo -->
+            <img class="w-[200px] h-[200px] object-cover shadow-lg" src="../img/3D_tiskarna.webp" alt="3d_tiskarna">
+             <!-- Oranžová oddělovací čára -->
+            <hr class="border-2 border-orange-400 w-[250px]">
+        </div>
+
+        <p class="font-jura text-[20px] leading-relaxed mb-6">
+            Do naší dílny dorazila nová 3D tiskárna!
+        </p>
+        <p class="font-jura text-[20px] leading-relaxed mb-6">
+            Díky ní budeme moci tisknout větší a složitější modely. Už se těšíme, až na ní vytiskneme první prototypy pro naše roboty.
+        </p>
+
+        <!-- Druhý panel zarovnaný doleva s čárou nahoře -->
+        <div class="float-left mr-8 mt-4 flex flex-col gap-4 items-center w-[250px] clear-left">
+             <!-- Oranžová oddělovací čára nad obrázkem (stejná šířka jako má ta horní - u obalu w-250px) -->
+            <hr class="border-2 border-orange-400 w-[250px]">
+            <!-- Druhý obrázek nalevo -->
+            <img class="w-[200px] h-[200px] object-cover shadow-lg" src="../img/3Đ_tisk.jpg" alt="3d_tisk">
+        </div>
+
+        <p class="font-jura text-[20px] leading-relaxed">
+            Zastavte se podívat, jak tiskne! Zkoušeli jsme na ní zatím jednodušší věci, ale funguje skvěle. Můžete se na fotkách podívat sami na detaily tisku i stroje samotného. Letošní soutěž bude mít parádní vytisknuté součástky!
+        </p>
+    </div>
+    <!-- Obal pro zarovnání tlačítka doprava -->
+    <div class="flex justify-end mr-12 mb-12">
+        <a href="../KECY/vsechny-projekty.html">
+            <button class="bg-orange-400 font-bold shadow-lg font-jura text-black px-6 py-3 hover:bg-orange-500 transition-colors">
+                Zpět na aktuality
+            </button>
+        </a>
+    </div>
+
+    <footer class="w-full mt-auto">
+        <nav class="p-8 flex justify-between shadow-lg items-center bg-white/10">
+           <p class="font-jura text-white">&copy; 2026 Tria Robolab </p> 
+           <p class="font-jura text-white flex items-center justify-center gap-2 elen_heart_container"> 
+               made with <span class="heart_icon inline-block w-5 h-5 transition-all duration-300"></span> Elen Cieslarová 
+           </p>
+        </nav>
+    </footer>
+    </div>
+</body>
+</html>
