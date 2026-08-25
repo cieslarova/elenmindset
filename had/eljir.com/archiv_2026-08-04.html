@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Počasí a Hvězdy ze dne 04. 08. 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        #agent2-komentar {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: left;
+        }
+        #agent2-komentar h3 {
+            margin-top: 0;
+            color: #fca5a5;
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+        }
+        .container {
+            max-width: 700px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .temp {
+            font-size: 3.5rem;
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+        }
+        .desc {
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .svatky-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .svatek {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        .svatek-dnes {
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+        .svatek-dnes strong {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #64748b;
+            color: #64748b;
+        }
+        .poetry {
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            color: #cbd5e1;
+        }
+        .horoskop {
+            text-align: left;
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            transition: background 0.3s;
+        }
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: block;
+            outline: none;
+        }
+        summary h3 {
+            display: inline-block;
+            margin: 0 0.5rem 0 0;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        .horoskop p {
+            margin: 0.75rem 0 0 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        .meta {
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            color: #94a3b8;
+        }
+        .footer-names {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Duch Třince</h1>
+        
+        <div class="weather-main">
+            <div class="temp">28°C</div>
+        </div>
+        <div class="desc">jasno</div>
+
+        <div class="svatky-box">
+            <div class="svatek svatek-dnes">Dne 04. 08. 2026 slavil(a) <strong>Dominik</strong></div>
+            <div class="svatek">Nášledující den slavil(a): <strong>Kristián</strong></div>
+        </div>
+
+        <div class="nav-buttons"><a href="archiv_2026-08-03.html" class="nav-btn">← Předchozí</a><a href="archiv_2026-08-05.html" class="nav-btn">Další →</a></div>
+
+        <div class="section-title">Nálada krajiny</div>
+        <div class="poetry">
+            
+<p>Dnes, na den svatého Dominika, se nad Třincem rozprostírá čisté nebe a vzduch se tetelí žárem letního odpoledne, rtuť teploměru se vyšplhala na úctyhodných 28.36 °C. Hřebeny Javorového a Ostrého stojí v tiché majestátnosti a shlíží na město, které se koupe ve zlatavém slunci. I ocelové srdce Werku, obvykle pulzující nespoutanou silou, jako by dnes bilo v klidnějším, rozvážnějším rytmu. Chladivý proud řeky Olše se líně vine krajinou a její třpytivá hladina je němým příslibem osvěžení a klidu v tomto horkém dni.</p>
+        </div>
+
+        <div id="agent2-komentar">
+            <h3>Třinecký realista dodává ze dne 04. 08. 2026:</h3>
+            <p>Nemám slov k těm nesmyslům s aurou, jdu si radši dát pivo. 🍺</p>
+        </div>
+
+        <div class="section-title">Hvězdy nad Beskydami</div>
+        <div class="horoskop">
+            
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2648.png" alt="♈️" style="height:1em;vertical-align:middle;"> Beran</h3>Vaše ohnivá energie dnes rezonuje s letním žárem, který dosahuje 28 °C, a dává vám sílu zdolat jakoukoliv výzvu.</summary><p><strong>Práce a finance:</strong> Slunce vám dodává odvahu pustit se do náročných úkolů, které jste odkládali. Vaše odhodlání bude nakažlivé a může vám přinést nečekané finanční ocenění. <strong>Zdraví a vztahy:</strong> Jste plní síly, ale nezapomínejte na hydrataci. Večerní proběhnutí podél chladnoucí Olše bude ideální tečkou za dnem. Ve vztazích dnes vládne vášeň, jen pozor na přílišnou impulzivitu.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2649.png" alt="♉️" style="height:1em;vertical-align:middle;"> Býk</h3>V horkém letním dni hledáte především klid a pohodlí, které vám dnešní konstelace dopřávají.</summary><p><strong>Práce a finance:</strong> Nenechte se horkem vyvést z míry a pracujte svým stabilním tempem. Trpělivost přinese ovoce, zejména ve finančních záležitostech. Dnes je dobrý den pro plánování a zajištění stability. <strong>Zdraví a vztahy:</strong> Dopřejte si odpočinek ve stínu s dobrou knihou nebo si zajděte na vychlazený nápoj. Ve vztazích oceníte klidnou atmosféru a upřímné projevy náklonnosti.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264a.png" alt="♊️" style="height:1em;vertical-align:middle;"> Blíženci</h3>Vaše mysl je dnes stejně jasná a prosluněná jako obloha nad Beskydami, což přeje komunikaci a novým nápadům.</summary><p><strong>Práce a finance:</strong> Merkur ve vašem znamení podporuje veškerá jednání a prezentace. Vaše slova mají váhu a snadno přesvědčíte ostatní o svých nápadech. Je to skvělý den pro networking a navazování nových kontaktů. <strong>Zdraví a vztahy:</strong> Jste společenští a vyhledáváte zábavu. Uspořádejte setkání s přáteli. Ve vztazích dnes vládne lehkost a hravost, užijte si společné chvíle plné smíchu.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264b.png" alt="♋️" style="height:1em;vertical-align:middle;"> Rak</h3>Horké počasí vás vybízí k péči o sebe a své blízké v klidu a bezpečí domova.</summary><p><strong>Práce a finance:</strong> I když se vám možná nechce do velkých akcí, vaše intuice pracuje na plné obrátky. Věnujte den plánování a naslouchejte svému vnitřnímu hlasu, zejména ve finančních otázkách. <strong>Zdraví a vztahy:</strong> Osvěžení hledejte u vody nebo ve stínu zahrady. Dnešek je ideální pro posílení rodinných pout a vytvoření harmonické atmosféry doma.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264c.png" alt="♌️" style="height:1em;vertical-align:middle;"> Lev</h3>Slunce, váš vládce, je na vrcholu sil a vy spolu s ním záříte sebevědomím a vitalitou.</summary><p><strong>Práce a finance:</strong> Dnes je váš den, abyste se ukázali v tom nejlepším světle. Využijte svou přirozenou autoritu k vedení projektů. Úspěch a uznání jsou na dosah, což se může projevit i na vašem účtu. <strong>Zdraví a vztahy:</strong> Cítíte se plní energie, ale i králové musí odpočívat – co takhle majestátní výhled z Javorového? Ve vztazích buďte velkorysí a zahrňte své blízké pozorností, vrátí se vám to.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264d.png" alt="♍️" style="height:1em;vertical-align:middle;"> Panna</h3>Jasný a horký den přeje vaší potřebě řádu a preciznosti, přináší vám klid a soustředění.</summary><p><strong>Práce a finance:</strong> Vaše schopnost analyzovat a organizovat je dnes na vrcholu. Využijte to k dotažení restů a plánování dalších kroků. Vaše pečlivost se projeví i ve financích, kde se vám podaří najít úspory. <strong>Zdraví a vztahy:</strong> Najděte si chladné a klidné místo, kde si utřídíte myšlenky. Ve vztazích dnes oceníte praktickou pomoc a upřímnou komunikaci bez zbytečných dramat.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264e.png" alt="♎️" style="height:1em;vertical-align:middle;"> Váhy</h3>Krása letního dne ve vás probouzí touhu po harmonii, společenském životě a romantice.</summary><p><strong>Práce a finance:</strong> Vaše diplomatické schopnosti dnes pomohou urovnat jakýkoliv pracovní spor. Jste skvělým týmovým hráčem a vaše snaha o férovost bude oceněna. Finančně si dopřejte něco, co lahodí vašemu oku. <strong>Zdraví a vztahy:</strong> Obklopte se krásou a milými lidmi. Večerní procházka městem nebo posezení s přáteli vám dodá energii. V lásce je čas na romantická gesta.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264f.png" alt="♏️" style="height:1em;vertical-align:middle;"> Štír</h3>Intenzita letního slunce odráží vaši vnitřní sílu a odhodlání jít si za svým cílem.</summary><p><strong>Práce a finance:</strong> Vaše soustředěnost je dnes jako laserový paprsek. Dokážete proniknout k jádru problému a najít efektivní řešení. Ve financích se nebojte zariskovat, ale jen po důkladné analýze. <strong>Zdraví a vztahy:</strong> I ocelové srdce Werku potřebuje občas zchladit. Najděte si chvíli pro sebe a regeneraci. Ve vztazích se nebojte projevit svou zranitelnost, prohloubí to vaši intimitu.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2650.png" alt="♐️" style="height:1em;vertical-align:middle;"> Střelec</h3>Nekonečná modrá obloha ve vás probouzí touhu po dobrodružství a objevování nových horizontů.</summary><p><strong>Práce a finance:</strong> Jste plní optimismu a nových nápadů. Podělte se o ně se svým okolím, vaše nadšení bude inspirativní. Finančně se může objevit příležitost spojená s cestováním nebo vzděláváním. <strong>Zdraví a vztahy:</strong> Neseďte doma! Vyrazte do přírody, třeba zdolat vrchol Ostrého. Vaše dobrá nálada je nakažlivá, sdílejte ji se svými přáteli a partnerem.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2651.png" alt="♑️" style="height:1em;vertical-align:middle;"> Kozoroh</h3>I v parném dni si udržujete chladnou hlavu a soustředíte se na své dlouhodobé cíle.</summary><p><strong>Práce a finance:</strong> Vaše vytrvalost a disciplína jsou dnes klíčem k úspěchu. Nenechte se rozptylovat a postupujte krok za krokem. Vaše úsilí se brzy zúročí, finanční stabilita je na dosah. <strong>Zdraví a vztahy:</strong> Nezapomínejte na odpočinek, i ten nejvýkonnější stroj potřebuje údržbu. Ve vztazích projevte svým blízkým podporu, vaše spolehlivost je pro ně neocenitelná.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2652.png" alt="♒️" style="height:1em;vertical-align:middle;"> Vodnář</h3>Letní vedra ve vás probouzí originální a nekonvenční nápady, jak se zchladit a pobavit.</summary><p><strong>Práce a finance:</strong> Přemýšlejte mimo zavedené koleje. Vaše inovativní řešení mohou přinést nečekaný průlom v projektu. Finančně se zajímejte o moderní technologie a alternativní investice. <strong>Zdraví a vztahy:</strong> Potřebujete mentální stimulaci a volnost. Spojte se s přáteli, kteří sdílejí vaše vize. Ve vztazích oceníte partnera, který respektuje vaši potřebu nezávislosti.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2653.png" alt="♓️" style="height:1em;vertical-align:middle;"> Ryby</h3>Snění a fantazie jsou dnes vaší nejlepší obranou proti horku, nechte se unášet na vlnách inspirace.</summary><p><strong>Práce a finance:</strong> Vaše kreativita a intuice jsou na vrcholu. Věnujte se činnostem, které vás naplňují, ať už je to umění nebo pomoc druhým. V práci naslouchejte svému šestému smyslu, povede vás správně. <strong>Zdraví a vztahy:</strong> Najděte si klidné místo u vody, kde můžete relaxovat a snít. Třpyt hladiny Olše vás uklidní. Ve vztazích projevte empatii a pochopení, budete pro své blízké oázou klidu.</p></details>
+        </div>
+
+        <div class="meta">
+            Tento den uložila paměť v údolí pod Beskydami.
+            <div class="footer-names">S láskou a moudrostí, Elen a Jiří | <a href="dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Projekt</a> | <a href="uzivatelska_dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Dokumentace</a></div>
+        </div>
+    </div>
+</body>
+</html>

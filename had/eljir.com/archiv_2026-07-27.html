@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Počasí a Hvězdy ze dne 27. 07. 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        #agent2-komentar {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: left;
+        }
+        #agent2-komentar h3 {
+            margin-top: 0;
+            color: #fca5a5;
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+        }
+        .container {
+            max-width: 700px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .temp {
+            font-size: 3.5rem;
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+        }
+        .desc {
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .svatky-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .svatek {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        .svatek-dnes {
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+        .svatek-dnes strong {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #64748b;
+            color: #64748b;
+        }
+        .poetry {
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            color: #cbd5e1;
+        }
+        .horoskop {
+            text-align: left;
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            transition: background 0.3s;
+        }
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: block;
+            outline: none;
+        }
+        summary h3 {
+            display: inline-block;
+            margin: 0 0.5rem 0 0;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        .horoskop p {
+            margin: 0.75rem 0 0 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        .meta {
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            color: #94a3b8;
+        }
+        .footer-names {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Duch Třince</h1>
+        
+        <div class="weather-main">
+            <div class="temp">14°C</div>
+        </div>
+        <div class="desc">polojasno</div>
+
+        <div class="svatky-box">
+            <div class="svatek svatek-dnes">Dne 27. 07. 2026 slavil(a) <strong>Věroslav</strong></div>
+            <div class="svatek">Nášledující den slavil(a): <strong>Viktor</strong></div>
+        </div>
+
+        <div class="nav-buttons"><a href="archiv_2026-07-26.html" class="nav-btn">← Předchozí</a><a href="archiv_2026-07-28.html" class="nav-btn">Další →</a></div>
+
+        <div class="section-title">Nálada krajiny</div>
+        <div class="poetry">
+            
+<p>Na Věroslava se nad Třincem rozehrála podívaná světla a stínů, když se chladnější vzduch ustálil na svěžích 14,47 °C, což dodává dni křišťálovou průzračnost. Javorový i Ostrý vystupují z mraků s ostrou zřetelností, jako by nás zvaly k výstupu a pohledu na svět z výšky s čistou myslí. Řeka Olše se třpytí v každém slunečním paprsku, který si najde cestu na zem, a její chladná voda odráží modré i šedé tóny oblohy. Dokonce i ocelový Werk dnes působí méně přísně, když se jeho silueta rýsuje proti hravým mrakům, v den, který oslavuje víru ve slávu a jasné zítřky.</p>
+        </div>
+
+        <div id="agent2-komentar">
+            <h3>Třinecký realista dodává ze dne 27. 07. 2026:</h3>
+            <p>Nemám slov k těm nesmyslům s aurou, jdu si radši dát pivo. 🍺</p>
+        </div>
+
+        <div class="section-title">Hvězdy nad Beskydami</div>
+        <div class="horoskop">
+            
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2648.png" alt="♈️" style="height: 1em; vertical-align: -0.1em;"> Beran</h3> Svěží, chladný vzduch dnes bystří vaši mysl a sluneční paprsky probouzí vaši akční povahu.</summary><p>Střídání světla a stínu je jako výzva pro vaši dynamickou energii. Využijte chladnějších 14 °C k intenzivnímu soustředění na práci a slunečné chvíle k rychlé procházce, která vám dodá potřebný impuls.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2649.png" alt="♉️" style="height: 1em; vertical-align: -0.1em;"> Býk</h3> Klidná a chladnější atmosféra dnešního dne je v dokonalé harmonii s vaší touhou po pohodě.</summary><p>Užijte si jasné výhledy na Beskydy, kdykoliv se slunce ukáže. Dnešek není o velkých výkonech, ale o vychutnávání si klidu a stability u šálku horkého nápoje. Je to den pro péči o sebe a své jistoty.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264a.png" alt="♊️" style="height: 1em; vertical-align: -0.1em;"> Blíženci</h3> Proměnlivá obloha plná slunce a mraků je dokonalým zrcadlem vaší zvídavé a mnohostranné povahy.</summary><p>Chladnější vzduch pročistí komunikaci a pomůže vám utřídit si myšlenky. Buďte flexibilní a nebojte se měnit plány podle toho, zda zrovna svítí slunce. Právě v přizpůsobivosti je dnes vaše síla.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264b.png" alt="♋️" style="height: 1em; vertical-align: -0.1em;"> Rak</h3> Svěží počasí vás dnes vybízí k vytvoření útulného a teplého hnízda v bezpečí domova.</summary><p>Jemné sluneční paprsky, které občas proniknou mraky, pohladí vaši citlivou duši. Věnujte čas rodině a péči o domácnost. Energie Věroslava přeje upřímným citům a hlubokým rozhovorům s nejbližšími.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264c.png" alt="♌️" style="height: 1em; vertical-align: -0.1em;"> Lev</h3> Využijte každého slunečního paprsku jako reflektoru pro své charisma a velkorysost.</summary><p>I když je chladněji, vaše vnitřní slunce má dnes sílu zahřát sebe i ostatní. Je to skvělý den pro kreativní tvorbu a prezentaci svých nápadů v menším kruhu, kde vaše osobnost skutečně vynikne.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264d.png" alt="♍️" style="height: 1em; vertical-align: -0.1em;"> Panna</h3> Křišťálově čistý a chladný vzduch je ideálním prostředím pro vaši praktickou a analytickou mysl.</summary><p>Dnes vám půjde od ruky jakákoliv práce vyžadující soustředění a smysl pro detail. Udělejte si pořádek ve svých plánech i na pracovním stole. Krátká procházka na svěžím vzduchu vám večer pomůže dokonale si vyčistit hlavu.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264e.png" alt="♎️" style="height: 1em; vertical-align: -0.1em;"> Váhy</h3> Hra světla a stínu na dnešní polojasné obloze je dokonalým symbolem harmonie, kterou hledáte.</summary><p>Užívejte si vyváženou atmosféru dne bez extrémů. Chladnější počasí přeje klidným setkáním a diplomatickým rozhovorům. Věnujte se umění nebo si jen tak vychutnávejte krásu okamžiku.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/264f.png" alt="♏️" style="height: 1em; vertical-align: -0.1em;"> Štír</h3> Střídání ostrého slunce a chladných stínů probouzí vaši hloubavou a tajemnou stránku.</summary><p>Dnešek je jako stvořený pro ponor do vlastního nitra a odhalování skrytých souvislostí. Důvěřujte své intuici, která je dnes obzvláště silná. Ticho a klid vám přinesou cenné poznatky.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2650.png" alt="♐️" style="height: 1em; vertical-align: -0.1em;"> Střelec</h3> Svěží a chladný vzduch ve vás probouzí touhu po dobrodružství a nových objevech.</summary><p>I když je jen 14 °C, je to ideální počasí na svižný výstup na Javorový, kde se vám naskytnou úchvatné výhledy. Vaše mysl je dnes otevřená novým filozofiím a plánům na budoucí cesty. Nechte se vést svou zvědavostí.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2651.png" alt="♑️" style="height: 1em; vertical-align: -0.1em;"> Kozoroh</h3> Chladné a jasné počasí je dokonalým prostředím pro vaši cílevědomost a soustředěnou práci.</summary><p>Vaše vytrvalost, pevná jako ocel z Werku, vám dnes pomůže dosáhnout velkého pokroku ve vašich dlouhodobých plánech. Nenechte se ničím rozptylovat a jděte si za svým. Večer si dopřejte zasloužený odpočinek.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2652.png" alt="♒️" style="height: 1em; vertical-align: -0.1em;"> Vodnář</h3> Křišťálový vzduch a proměnlivá obloha stimulují vaši originální a pokrokovou mysl.</summary><p>Dnes můžete vidět věci z naprosto nové perspektivy. Sdílejte své nápady s přáteli, můžete je inspirovat k velkým věcem. Den přeje neformálním setkáním a diskusím o budoucnosti.</p></details>
+<details><summary><h3><img src="https://assets.openclaw.ai/emoji/v14/72x72/2653.png" alt="♓️" style="height: 1em; vertical-align: -0.1em;"> Ryby</h3> Snová atmosféra dne, kdy se slunce střídá s mraky, probouzí vaši fantazii a intuici.</summary><p>Nechte se unášet na vlnách inspirace, poslouchejte hudbu nebo se věnujte umění. Chladnější počasí vám pomůže udržet si jasnou hlavu, zatímco vaše duše může volně putovat. Věnujte pozornost svým snům, mohou být dnes obzvláště živé.</p></details>
+        </div>
+
+        <div class="meta">
+            Tento den uložila paměť v údolí pod Beskydami.
+            <div class="footer-names">S láskou a moudrostí, Elen a Jiří | <a href="dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Projekt</a> | <a href="uzivatelska_dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Dokumentace</a></div>
+        </div>
+    </div>
+</body>
+</html>
