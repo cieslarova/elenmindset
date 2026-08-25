@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv Projektu: Duch Třince (eljir.com)</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 650px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .tech-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .action-area {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+            background-color: #7dd3fc;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Duch Třince</h1>
+
+        </div>
+
+        <div class="section">
+            <h2>Myšlenka projektu</h2>
+            <p>
+                Projekt „Duch Třince“ sloužil jako lokální denní bulletin zaměřený na region Třince a Beskyd.
+                Jedinečnost konceptu spočívala ve spojení předpovědi počasí, svátků a lokálního patriotismu, a především
+                ve střetu dvou vypravěčů: Elen (poetičky) a Jiřího (realisty).
+            </p>
+            <p>
+                Tento projekt byl realizován za účelem seznámení se s technologií AI agentů. Během vývoje jsem se
+                naučila, jak
+                zprovoznit linuxový server, pracovat s Dockerem, nastavit OpenClaw a zprovoznit databázi pro ukládání
+                historie. Jelikož projekt již splnil svůj účel, převedla jsem všechls -ny články vygenerované agentem na
+                statické soubory, které jsou ke zhlédnutí na tomto webu.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Technický popis</h2>
+            <div class="tech-box">
+                <strong>Frontend:</strong> Statické HTML5 a Vanilla CSS3, bez využití JavaScriptu.<br>
+                <strong>Design:</strong> Tmavý režim (Dark Theme) spoléhající na efekty Glassmorphismu a nativní HTML
+                komponenty (např. tagy <code>&lt;details&gt;</code>).<br>
+                <strong>Generování:</strong> Automatizovaná tvorba obsahu formou každodenních HTML šablon.
+            </div>
+        </div>
+
+        <div class="action-area" style="margin-top: 20px;">
+            <a href="eljir.com/index.html" class="btn" style="margin-bottom: 15px;">Duch Třince</a>
+            <a href="/index.html" class="back-link">← Zpět na portfolio</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Odkaz na repozitář: https://github.com/cieslarova/eljira </p>
+    </footer>
+
+</body>
+
+</html>

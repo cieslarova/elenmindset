@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Uživatelská dokumentace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            animation: fadeIn 0.8s ease-out;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--accent-color);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 1rem;
+        }
+        h2 {
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #fca5a5;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+        .header-nav {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header-nav a {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .header-nav a:hover {
+            background: rgba(56, 189, 248, 0.3);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header-nav">
+            <a href="index.html">← Zpět na Ducha Třince</a>
+        </div>
+
+        <h1>Uživatelská dokumentace</h1>
+
+        <h2>1. O projektu</h2>
+        <ul>
+            <li><strong>Název webu:</strong> Duch Třince</li>
+            <li><strong>Adresa:</strong> <a href="index.html">https://eljir.com</a></li>
+            <li><strong>Hlavní téma:</strong> Lokální denní bulletin zaměřený na region Třince a Beskyd.</li>
+            <li><strong>Koncept:</strong> Web kombinuje regionální patriotismus, předpověď počasí, svátky, astrologii a jemnou satiru.</li>
+        </ul>
+
+        <p>Projekt je unikátní tím, že představuje svět ze dvou různých pohledů:</p>
+        <ul>
+            <li><strong>Elen:</strong> Má poetický a spirituální pohled na svět. Představuje samotného "Ducha Třince". Píše o hvězdách, náladě krajiny a horoskopech, přičemž používá velmi pozitivní a vzletný jazyk.</li>
+            <li><strong>Jiří (Třinecký realista):</strong> Je protikladem Elen. Nabízí sarkastický a pragmatický pohled na život obyčejného obyvatele Třince. Jeho trefné poznámky se často točí kolem běžných starostí, piva nebo práce v Třineckých železárnách ("Werku").</li>
+        </ul>
+
+        <h2>2. Průvodce obsahem (Co na webu najdete)</h2>
+        <p>Stránka je navržena tak, aby byla velmi jednoduchá, přehledná a dala se snadno číst na jakémkoliv zařízení. Každý den se obsah automaticky aktualizuje.</p>
+
+        <p>Základní sekce, které na webu najdete:</p>
+        <ol>
+            <li><strong>Počasí:</strong> Okamžitý přehled o aktuální teplotě a stavu počasí v Třinci.</li>
+            <li><strong>Kdo má svátek:</strong> Informace o tom, kdo slaví jmeniny dnes a kdo je bude slavit zítra.</li>
+            <li><strong>Nálada krajiny:</strong> Krátký poetický text od Elen, který popisuje aktuální atmosféru v okolí (např. Javorový vrch, Ostrý, řeka Olše).</li>
+            <li><strong>Komentář Realisty:</strong> Výrazně označený blok s rýpavým nebo humorným komentářem od Jiřího, který reaguje na aktuální den či náladu.</li>
+            <li><strong>Horoskopy:</strong> Předpověď pro jednotlivá znamení zvěrokruhu. Pro zachování přehlednosti jsou horoskopy zpočátku sbalené – stačí kliknout na vaše znamení a předpověď se rozbalí.</li>
+        </ol>
+
+        <h2>3. Navigace a listování v archivu</h2>
+        <p>Web funguje jako deník. Na hlavní stránce vždy vidíte aktuální vydání pro dnešní den.</p>
+        <ul>
+            <li>V dolní části stránky najdete <strong>tlačítka pro listování</strong>.</li>
+            <li>Můžete se tak snadno vracet do minulosti a prohlížet si starší vydání z předchozích dnů. Tlačítko pro posun do zítřka (pokud ještě nevyšlo) je logicky neaktivní.</li>
+        </ul>
+
+        <h2>4. Cíl projektu</h2>
+        <p>Web eljir.com neslouží jako klasický zpravodajský portál. Je to spíše odpočinkový ranní rituál ke kávě. Nepřetěžuje čtenáře negativními zprávami, ale nabízí rychlý, vizuálně příjemný zážitek, u kterého se zasmějete Jiřímu a zasníte s Elen.</p>
+
+        <div class="header-nav" style="margin-top: 3rem;">
+            <a href="index.html">← Zpět na Ducha Třince</a>
+        </div>
+    </div>
+</body>
+</html>

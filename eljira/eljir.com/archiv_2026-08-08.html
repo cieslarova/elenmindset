@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Počasí a Hvězdy ze dne 08. 08. 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        #agent2-komentar {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: left;
+        }
+        #agent2-komentar h3 {
+            margin-top: 0;
+            color: #fca5a5;
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+        }
+        .container {
+            max-width: 700px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .temp {
+            font-size: 3.5rem;
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+        }
+        .desc {
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .svatky-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .svatek {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        .svatek-dnes {
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+        .svatek-dnes strong {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #64748b;
+            color: #64748b;
+        }
+        .poetry {
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            color: #cbd5e1;
+        }
+        .horoskop {
+            text-align: left;
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            transition: background 0.3s;
+        }
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: block;
+            outline: none;
+        }
+        summary h3 {
+            display: inline-block;
+            margin: 0 0.5rem 0 0;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        .horoskop p {
+            margin: 0.75rem 0 0 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        .meta {
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            color: #94a3b8;
+        }
+        .footer-names {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Duch Třince</h1>
+        
+        <div class="weather-main">
+            <div class="temp">17°C</div>
+        </div>
+        <div class="desc">jasno</div>
+
+        <div class="svatky-box">
+            <div class="svatek svatek-dnes">Dne 08. 08. 2026 slavil(a) <strong>Soběslav</strong></div>
+            <div class="svatek">Nášledující den slavil(a): <strong>Roman</strong></div>
+        </div>
+
+        <div class="nav-buttons"><a href="archiv_2026-08-07.html" class="nav-btn">← Předchozí</a><a href="archiv_2026-08-09.html" class="nav-btn">Další →</a></div>
+
+        <div class="section-title">Nálada krajiny</div>
+        <div class="poetry">
+            <p>Dnes, na svátek Soběslava, se Třinec probouzí do křišťálově jasného dne, kde svěží teplota 16,69 °C vnáší do vzduchu energii připomínající první jarní nádech. Z vrcholku Javorového se zdá, že lze dohlédnout za hranice všednosti, Ostrý stojí jako tichý strážce a řeka Olše se třpytí jako stříbrná nitka vedle ocelového srdce Werku. Tento okamžik je dokonalou pozvánkou k tichému rozjímání o harmonii, v níž se síla přírody a tep průmyslu slévají v jediný, neopakovatelný celek. Nechť nás tato čistota inspiruje k jasným myšlenkám a klidné mysli.</p>
+        </div>
+
+        <div id="agent2-komentar">
+            <h3>Třinecký realista dodává ze dne 08. 08. 2026:</h3>
+            <p>Nemám slov k těm nesmyslům s aurou, jdu si radši dát pivo. 🍺</p>
+        </div>
+
+        <div class="section-title">Hvězdy nad Beskydami</div>
+        <div class="horoskop">
+            
+<p>Dnes, kdy se Třinec koupe v jasném slunci a svěží teplota 17°C hladí po tváři, hvězdy tančí v rytmu ocelového srdce města. Nechť vás tento den, zasvěcený Soběslavovi, inspiruje k jasným myšlenkám a radostným činům, stejně jako je jasný dnešní pohled na vrcholky Beskyd.</p>
+<details>
+<summary><h3>♈️ Beran</h3>Jasná obloha dnes nabíjí vaši ohnivou energii a volá po akci.</summary>
+<p>Je to ideální den vyrazit ven a nasměrovat svou sílu k novým cílům. Možná je čas zdolat Javorový a z jeho vrcholu se podívat na svět s novou perspektivou.</p>
+</details>
+<details>
+<summary><h3>♉️ Býk</h3>Příjemné slunečné počasí přináší do vašeho dne pocit klidu a pohody.</summary>
+<p>Dovolte si zpomalit a užít si krásu okamžiku, třeba při procházce podél třpytící se řeky Olše. Vaše spojení s přírodou je dnes obzvlášť silné a uzemňující.</p>
+</details>
+<details>
+<summary><h3>♊️ Blíženci</h3>Sluneční paprsky prosvětlují vaši mysl a podporují jasnou komunikaci.</summary>
+<p>Vaše nápady budou dnes sršet jako jiskry nad ocelárnami a snadno pro ně nadchnete i ostatní. Je skvělý čas na setkávání s přáteli a sdílení myšlenek.</p>
+</details>
+<details>
+<summary><h3>♋️ Rak</h3>Hřejivé slunce přináší do vaší citlivé duše pocit bezpečí a optimismu.</summary>
+<p>Využijte tento den pro péči o své blízké a o svůj domov, který se dnes může stát vaším prosluněným útočištěm. Sdílená radost bude dvojnásobnou radostí.</p>
+</details>
+<details>
+<summary><h3>♌️ Lev</h3>Jste ve svém živlu, protože slunce na obloze je vaším nejlepším spojencem.</summary>
+<p>Dovolte své kreativitě a velkorysosti naplno zazářit. Svým charismatem dnes můžete inspirovat a vést ostatní, buďte středem pozornosti, který hřeje.</p>
+</details>
+<details>
+<summary><h3>♍️ Panna</h3>Jasná obloha se odráží ve vaší mysli, která je dnes ostrá a soustředěná.</summary>
+<p>Je to perfektní den pro organizaci, plánování a dotahování věcí do konce. S přehledem zvládnete každý úkol, který si před sebe postavíte, s precizností hodnou mistra.</p>
+</details>
+<details>
+<summary><h3>♎️ Váhy</h3>Krásný a harmonický den vás zve k hledání rovnováhy a krásy ve všem kolem vás.</summary>
+<p>Užijte si příjemné chvíle s partnerem nebo přáteli. Vaše diplomatické schopnosti dnes pomohou urovnat jakékoliv neshody a nastolit klid.</p>
+</details>
+<details>
+<summary><h3>♏️ Štír</h3>Intenzivní sluneční svit dnes proniká i do nejhlubších zákoutí a odhaluje skryté pravdy.</summary>
+<p>Vaše intuice je na vrcholu a vy vidíte věci tak, jak skutečně jsou. Důvěřujte svým pocitům, povedou vás k důležitým poznáním a transformaci.</p>
+</details>
+<details>
+<summary><h3>♐️ Střelec</h3>Modrá obloha bez jediného mráčku ve vás probouzí neodolatelnou touhu po dobrodružství.</summary>
+<p>Poslechněte volání dálek a vydejte se objevovat nová místa, třeba zdolat vrchol Ostrého. Energie dne přeje expanzi a rozšiřování obzorů ve všech směrech.</p>
+</details>
+<details>
+<summary><h3>♑️ Kozoroh</h3>Jasný výhled na horské štíty dokonale souzní s vašimi ambicemi a odhodláním.</summary>
+<p>Dnešní den je jako stvořený pro práci na vašich dlouhodobých cílech. Vaše vytrvalost a disciplína, pevná jako ocel z Werku, vás krok za krokem přibližuje k úspěchu.</p>
+</details>
+<details>
+<summary><h3>♒️ Vodnář</h3>Čistá a svěží energie dne stimuluje vaši originální a inovativní mysl.</summary>
+<p>Je to skvělý čas pro setkávání s podobně naladěnými lidmi a spřádání plánů na lepší budoucnost. Vaše vize mohou dnes inspirovat celou komunitu.</p>
+</details>
+<details>
+<summary><h3>♓️ Ryby</h3>Sluneční paprsky jemně prohřívají vaši snovou duši a probouzí vaši fantazii.</summary>
+<p>Dovolte si unášet se na vlnách kreativity, ať už skrze umění, hudbu nebo jen tiché rozjímání. V kráse slunečného dne naleznete hlubokou inspiraci a duchovní klid.</p>
+</details>
+        </div>
+
+        <div class="meta">
+            Tento den uložila paměť v údolí pod Beskydami.
+            <div class="footer-names">S láskou a moudrostí, Elen a Jiří | <a href="dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Projekt</a> | <a href="uzivatelska_dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Dokumentace</a></div>
+        </div>
+    </div>
+</body>
+</html>

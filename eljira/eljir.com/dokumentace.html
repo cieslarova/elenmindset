@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Dokumentace Projektu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            animation: fadeIn 0.8s ease-out;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--accent-color);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 1rem;
+        }
+        h2 {
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #fca5a5;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #cbd5e1;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            color: #94a3b8;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+        .header-nav {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header-nav a {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .header-nav a:hover {
+            background: rgba(56, 189, 248, 0.3);
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2.5rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+        th {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        td code {
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header-nav">
+            <a href="index.html">← Zpět na Ducha Třince</a>
+        </div>
+
+        <h1>Technická dokumentace projektu</h1>
+
+        <p>Tato dokumentace popisuje technické pozadí, architekturu a infrastrukturu projektu <strong>Duch Třince</strong> (hostovaného na <code>eljir.com</code>), který kombinuje data o počasí a astrologii s generativní AI, společně se souvisejícími agenty běžícími na tomto serveru.</p>
+
+        <h2>Architektura a Technologie</h2>
+        <p>Systém je postavený na decentralizovaném zpracování dat na pozadí pomocí Bash skriptů, Pythonu a Docker kontejnerů. Výsledné webové stránky jsou generovány staticky (Static Site Generation – SSG), což zajišťuje bleskovou odezvu na straně klienta a vynikající SEO bez nutnosti klientského JavaScriptu.</p>
+
+        <ul>
+            <li><strong>Frontend:</strong> HTML5, moderní CSS (Glassmorphism design, custom proměnné, CSS Grid/Flexbox). Všechny stránky i archiv jsou čistě statické.</li>
+            <li><strong>Backend / Automatizace:</strong> GNU Bash skripty na hostiteli, plánovač <code>cron</code>, SQLite3 databáze, systémové a textové nástroje (<code>jq</code>, <code>sed</code>, <code>awk</code>, <code>perl</code>, <code>tr</code>) a Python skripty pro zpracování dat.</li>
+            <li><strong>AI Vrstva:</strong> Node.js framework <a href="https://github.com/astral-sh/openclaw" target="_blank">OpenClaw</a> na bázi modelů Google Gemini. Hlavní modely jsou <code>google/gemini-2.5-pro</code> (horoskop a poezie) a <code>google/gemini-2.5-flash</code> (telegram zpravodaj).</li>
+            <li><strong>Infrastruktura:</strong> Docker & Docker Compose pro běh a izolaci doplňkových agentů a služeb. Nginx s reverzní proxy a SSL certifikací (Let's Encrypt / Certbot).</li>
+            <li><strong>Zabezpečení:</strong> Fail2Ban chránící SSH a webový server (Nginx) před škodlivými boty a hrubou silou.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Logika Aplikace a Životní Cyklus</h2>
+        <p>Aplikace funguje na bázi pravidelného přegenerování statického obsahu. O to se starají dva spárované bash skripty na hostiteli, které běží v rámci plánovače <code>cron</code> uživatele <code>openclaw</code>.</p>
+
+        <h3>1. Časování (Crontab)</h3>
+        <p>Pravidelné spouštění je řízeno Linuxovým plánovačem <code>cron</code> pod uživatelským účtem <code>openclaw</code>. Skripty se spouštějí každé 3 hodiny v časovém okně od 06:00 do 21:00.</p>
+
+<pre><code># Výpis crontab uživatele openclaw (crontab -u openclaw -l)
+0 6-21/3 * * * /home/openclaw/pocasi.sh > /home/openclaw/weather_cron.log 2>&1
+2 6-21/3 * * * /home/openclaw/pocasi_agent2.sh > /home/openclaw/weather_agent2_cron.log 2>&1</code></pre>
+        <p style="font-size: 0.9rem; opacity: 0.8; font-style: italic;">Druhý skript (pocasi_agent2.sh) se spouští s dvouminutovým zpožděním, aby měl první skript čas na dokončení své práce a uložení dat do databáze.</p>
+
+        <hr>
+
+        <h3>2. Generování obsahu - <code>pocasi.sh</code> (Agent 1)</h3>
+        <p>Tento skript sestavuje hlavní kostru počasí, poezie a horoskopu.</p>
+        <ol>
+            <li><strong>Počasí API:</strong> Pomocí nástroje <code>curl</code> stáhne aktuální počasí pro Třinec z OpenWeatherMap API a rozparsuje jej přes <code>jq</code> (teplota, stav oblohy).</li>
+            <li><strong>Jmeniny API:</strong> Stáhne aktuální a zítřejší jmeniny asynchronně přes API <code>https://svatkyapi.cz/api/day</code>.</li>
+            <li><strong>AI Volání (Poezie):</strong> Zavolá globální instanci OpenClaw nainstalovanou na hostiteli (<code>/usr/bin/openclaw</code>). Na základě meteorologických dat a identity bota ze <code>SOUL.md</code> vygeneruje model <code>gemini-2.5-pro</code> poetický popisek Třince (Nálada krajiny).</li>
+            <li><strong>AI Volání (Horoskop):</strong> Opětovně zavolá OpenClaw, přečte specifikaci úkolu z <code>generate_daily_horoscope.md</code> a vygeneruje kompletní denní horoskop ve strukturovaném HTML formátu (značky <code>&lt;details&gt;</code>) pro 12 znamení zvěrokruhu.</li>
+            <li><strong>Parsování & SQLite:</strong> Texty jsou vyčištěny od ANSI kódů a markdown značek pomocí <code>perl</code> filtrů a uloženy do SQLite3 databáze (<code>/home/openclaw/.openclaw/historie.db</code>) pomocí Python skriptu <code>insert_pocasi.py</code>.</li>
+            <li><strong>Statický build:</strong> Spustí <code>generator_webu.py</code>, který přečte celou historii z databáze a vygeneruje statický <code>index.html</code> a archivní soubory (např. <code>archiv_2026-06-15.html</code>).</li>
+        </ol>
+
+        <hr>
+
+        <h3>3. Cynický Komentář - <code>pocasi_agent2.sh</code> (Agent 2)</h3>
+        <p>Skript kriticky a jízlivě komentuje výstupy prvního agenta.</p>
+        <ol>
+            <li><strong>Načtení vstupu:</strong> Spustí Python skript <code>read_agent1.py</code>, který vytáhne nejnovější záznam od prvního agenta z databáze a očistí jej od HTML tagů.</li>
+            <li><strong>Spuštění v Dockeru:</strong> Ke zpracování cynického komentáře nepoužívá novou lokální instanci, ale bleskově zavolá běžící instanci v Docker kontejneru přes:
+            <pre><code>docker exec openclaw_bot_2 node openclaw.mjs agent ...</code></pre>
+            Model <code>gemini-2.5-pro</code> vygeneruje cynický komentář na základě osobnosti popsané v <code>cynic_commentator.md</code>.</li>
+            <li><strong>Uložení & Finalizace:</strong> Vyčistí text od uvozovek a zpětných apostrofů, zapíše jej do SQLite databáze přes <code>insert_agent2.py</code> a znovu spustí <code>generator_webu.py</code>, který zkompiluje finální verzi webu včetně komentáře realismu.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Konfigurace Docker Kontejnerů</h2>
+        <p>Na tomto serveru běží celkem 4 nezávislé služby v Docker kontejnerech spravované přes Docker Compose:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Název kontejneru</th>
+                    <th>Umístění projektu</th>
+                    <th>Hlavní technologie</th>
+                    <th>Účel a fungování služby</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>openclaw_bot_1</code></td>
+                    <td><code>/home/openclaw/docker-openclaw</code></td>
+                    <td>Node.js 22 (Alpine)</td>
+                    <td>Rezervní kontejner OpenClaw pro Agenta 1. Hlavní běh je z důvodu rychlosti spouštěn přímo na hostiteli.</td>
+                </tr>
+                <tr>
+                    <td><code>openclaw_bot_2</code></td>
+                    <td><code>/home/openclaw/docker-openclaw</code></td>
+                    <td>Node.js 22 (Alpine)</td>
+                    <td>Trvale běžící proces OpenClaw na pozadí, do kterého skript <code>pocasi_agent2.sh</code> posílá bleskové požadavky přes <code>docker exec</code> pro generování cynických komentářů.</td>
+                </tr>
+                <tr>
+                    <td><code>telegram_zpravodaj</code></td>
+                    <td><code>/home/openclaw/telegram_zpravodaj</code></td>
+                    <td>Python 3 (Alpine)</td>
+                    <td>Ranní zpravodaj z vybraných Reddit RSS kanálů. Každé ráno v 7:00 (řízeno <code>AsyncIOScheduler</code>) stáhne zprávy, nechá model <code>gemini-2.5-flash</code> provést výběr a překlad a odešle je na Telegram API.</td>
+                </tr>
+                <tr>
+                    <td><code>ilou_agent_bot</code></td>
+                    <td><code>/home/openclaw/ilou_agent</code></td>
+                    <td>Python 3 (Alpine)</td>
+                    <td>Discord bot sloužící k řešení školních úloh v Pythonu. Automaticky programuje skripty, dokumentuje je a nahrává na GitHub v rozestupech 15 hodin pod jménem "Ilou Agent".</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Zabezpečení (Fail2Ban)</h2>
+        <p>Pro ochranu serveru a běžících služeb je nakonfigurován a povolen systém <strong>Fail2Ban</strong>, který monitoruje systémové a webové logy a blokuje IP adresy vykazující útočné chování pomocí systémového firewallu.</p>
+
+        <h3>Základní konfigurace (<code>/etc/fail2ban/jail.local</code>)</h3>
+        <ul>
+            <li><code>ignoreip = 127.0.0.1/8 ::1</code> (lokální adresa hostitele nebude nikdy zablokována)</li>
+            <li><code>bantime = 1h</code> (doba trvání banu pro zablokovanou IP adresu je 1 hodina)</li>
+            <li><code>findtime = 10m</code> (časové okno 10 minut pro sledování neúspěšných pokusů)</li>
+            <li><code>maxretry = 5</code> (maximální počet pokusů před udělením banu)</li>
+        </ul>
+
+        <h3>Aktivní monitorované Jaily</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Název jailu</th>
+                    <th>Monitorovaný log</th>
+                    <th>Popis a chování</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>sshd</code></td>
+                    <td>systémový log (SSH)</td>
+                    <td>Chrání server před pokusy o uhodnutí hesla k SSH přístupu. Po 5 špatných pokusech banuje IP adresu.</td>
+                </tr>
+                <tr>
+                    <td><code>nginx-http-auth</code></td>
+                    <td><code>/var/log/nginx/error.log</code></td>
+                    <td>Detekuje a blokuje IP adresy, které opakovaně selžou u HTTP Basic autentizace na webovém serveru Nginx.</td>
+                </tr>
+                <tr>
+                    <td><code>nginx-botsearch</code></td>
+                    <td><code>/var/log/nginx/error.log</code></td>
+                    <td>Chrání web před automatizovanými roboty skenujícími citlivé cesty (administrace, PHPMyAdmin apod.). Z důvodu vysoké citlivosti má nastaven přísnější limit <code>maxretry = 2</code>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="header-nav" style="margin-top: 3rem;">
+            <a href="index.html">← Zpět na Ducha Třince</a>
+        </div>
+    </div>
+</body>
+</html>

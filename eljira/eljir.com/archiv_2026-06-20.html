@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duch Třince - Počasí a Hvězdy ze dne 20. 06. 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        #agent2-komentar {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: left;
+        }
+        #agent2-komentar h3 {
+            margin-top: 0;
+            color: #fca5a5;
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            padding: 2rem 0;
+        }
+        .container {
+            max-width: 700px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .temp {
+            font-size: 3.5rem;
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+        }
+        .desc {
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .svatky-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .svatek {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        .svatek-dnes {
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+        .svatek-dnes strong {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #64748b;
+            color: #64748b;
+        }
+        .poetry {
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            color: #cbd5e1;
+        }
+        .horoskop {
+            text-align: left;
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            transition: background 0.3s;
+        }
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: block;
+            outline: none;
+        }
+        summary h3 {
+            display: inline-block;
+            margin: 0 0.5rem 0 0;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        .horoskop p {
+            margin: 0.75rem 0 0 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        .meta {
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            color: #94a3b8;
+        }
+        .footer-names {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Duch Třince</h1>
+        
+        <div class="weather-main">
+            <div class="temp">24°C</div>
+        </div>
+        <div class="desc">zataženo</div>
+
+        <div class="svatky-box">
+            <div class="svatek svatek-dnes">Dne 20. 06. 2026 slavil(a) <strong>Květa</strong></div>
+            <div class="svatek">Nášledující den slavil(a): <strong>Alois</strong></div>
+        </div>
+
+        <div class="nav-buttons"><a href="archiv_2026-06-19.html" class="nav-btn">← Předchozí</a><a href="archiv_2026-06-21.html" class="nav-btn">Další →</a></div>
+
+        <div class="section-title">Nálada krajiny</div>
+        <div class="poetry">
+            
+<p>Dnes, na svátek Květy, se Třinec zahalil do zatažené oblohy, ale pod ní pulzuje teplý vzduch o teplotě 24.47 °C, plný živé, byť skryté energie. Javorový i Ostrý se dnes ztrácejí v šedém závoji mraků, jako by rozjímaly nad údolím a nechaly město jeho vlastnímu tichému tepu. I dech ocelového Werku se zdá být klidnější, v souladu s líným proudem řeky Olše, která nese dál tajemství tohoto dne. Je to den, který nám ukazuje, že síla jara a blížícího se léta nepotřebuje ostré slunce, aby byla cítit – je v teple vzduchu, v tichu kopců a v neustálém rytmu města.</p>
+        </div>
+
+        <div id="agent2-komentar">
+            <h3>Třinecký realista dodává ze dne 20. 06. 2026:</h3>
+            <p>Nemám slov k těm nesmyslům s aurou, jdu si radši dát pivo. 🍺</p>
+        </div>
+
+        <div class="section-title">Hvězdy nad Beskydami</div>
+        <div class="horoskop">
+            
+<details>
+<summary><h3>♈️ Beran</h3>Zatažená obloha a příjemná teplota dnes tlumí vaši ohnivou energii a vedou vás k zamyšlení.</summary>
+<p>Nenuťte se do velkých akcí. Je to ideální den pro plánování a strategii, spíše než pro bezhlavé prosazování cílů. <strong>Třinecký tip:</strong> Klidná procházka v Lesoparku vám pomůže utřídit si myšlenky na nadcházející týden. <strong>Šťastné číslo dne:</strong> 5</p>
+</details>
+<details>
+<summary><h3>♉️ Býk</h3>Dnešní stabilní a klidné počasí dokonale souzní s vaší povahou.</summary>
+<p>Užijte si den plný pohody, dobrého jídla a odpočinku. Nemusíte nic dokazovat, jen buďte a vnímejte přítomnost. <strong>Třinecký tip:</strong> Dopřejte si kávu a zákusek v některé z místních cukráren, zasloužíte si to. <strong>Šťastné číslo dne:</strong> 6</p>
+</details>
+<details>
+<summary><h3>♊️ Blíženci</h3>Vaše mysl je dnes klidnější, což vám umožňuje soustředit se na jednu věc.</summary>
+<p>Využijte této vzácné chvíle a ponořte se do knihy nebo zajímavého rozhovoru. Méně těkavosti znamená více hloubky. <strong>Třinecký tip:</strong> Návštěva kina Kosmos je skvělý způsob, jak se ponořit do jednoho příběhu. <strong>Šťastné číslo dne:</strong> 7</p>
+</details>
+<details>
+<summary><h3>♋️ Rak</h3>Šedá obloha a teplo domova je pro vás dnes tou nejlepší kombinací.</summary>
+<p>Věnujte se rodině, péči o domácnost nebo svým vlastním pocitům. Vaše intuice je dnes silná, naslouchejte jí. <strong>Třinecký tip:</strong> Uvařte si uklidňující večeři a sdílejte ji se svými nejbližšími. <strong>Šťastné číslo dne:</strong> 2</p>
+</details>
+<details>
+<summary><h3>♌️ Lev</h3>I když slunce na obloze chybí, vaše vnitřní záře může osvětlit celý den.</summary>
+<p>Nenechte se počasím omezovat. Vaše energie a optimismus dokážou inspirovat ostatní a vytvořit skvělou atmosféru. <strong>Třinecký tip:</strong> Zorganizujte neformální setkání s přáteli, vaše přítomnost bude středobodem zábavy. <strong>Šťastné číslo dne:</strong> 1</p>
+</details>
+<details>
+<summary><h3>♍️ Panna</h3>Klidné a soustředěné počasí je ideální pro vaši potřebu organizace a detailů.</summary>
+<p>Využijte den k dokončení úkolů, které vyžadují preciznost. Půjde vám to skvěle od ruky a večer budete mít pocit uspokojení. <strong>Třinecký tip:</strong> Udělejte si pořádek na pracovním stole nebo si naplánujte jídelníček na příští týden. <strong>Šťastné číslo dne:</strong> 3</p>
+</details>
+<details>
+<summary><h3>♎️ Váhy</h3>Hledáte rovnováhu mezi touhou něco dělat a klidnou atmosférou dne.</summary>
+<p>Ideální bude najít aktivitu, která je společenská, ale ne příliš náročná. Harmonie je dnes klíčová. <strong>Třinecký tip:</strong> Navštivte výstavu nebo si jen tak sedněte s přáteli a povídejte si. <strong>Šťastné číslo dne:</strong> 4</p>
+</details>
+<details>
+<summary><h3>♏️ Štír</h3>Zatažená obloha podporuje vaši tajemnou a hloubavou stránku.</summary>
+<p>Je to skvělý den pro ponor do vlastního nitra, studium nebo řešení nějaké záhady. Důvěřujte své intuici. <strong>Třinecký tip:</strong> Zapište si své myšlenky a pocity, můžete objevit něco překvapivého. <strong>Šťastné číslo dne:</strong> 8</p>
+</details>
+<details>
+<summary><h3>♐️ Střelec</h3>Váš dobrodružný duch dnes musí hledat nové cesty v klidnějším prostředí.</summary>
+<p>Nemusíte šplhat na Javorový, abyste zažili něco nového. Objevujte neznámé uličky města nebo se ponořte do světa knih a filmů. <strong>Třinecký tip:</strong> Naplánujte si příští velký výlet, snění o budoucnosti vás nabije energií. <strong>Šťastné číslo dne:</strong> 9</p>
+</details>
+<details>
+<summary><h3>♑️ Kozoroh</h3>Počasí přeje soustředěné a trpělivé práci na vašich dlouhodobých cílech.</summary>
+<p>Nenechte se rozptylovat a pokračujte ve svém úsilí. I malé kroky vás dnes posunou výrazně vpřed. <strong>Třinecký tip:</strong> Po práci si dopřejte odměnu v podobě klidného večera a dobré večeře. <strong>Šťastné číslo dne:</strong> 10</p>
+</details>
+<details>
+<summary><h3>♒️ Vodnář</h3>Šedá obloha je pro vaši kreativní mysl jako čisté plátno.</summary>
+<p>Den je ideální pro brainstorming a přemýšlení o nekonvenčních nápadech. Nechte svou fantazii pracovat na plné obrátky. <strong>Třinecký tip:</strong> Diskutujte o svých vizích s přáteli, jejich pohled vás může obohatit. <strong>Šťastné číslo dne:</strong> 11</p>
+</details>
+<details>
+<summary><h3>♓️ Ryby</h3>Snová a melancholická atmosféra zataženého dne je pro vaši duši balzámem.</summary>
+<p>Dovolte si jen tak být, snít a relaxovat. Je to ideální čas pro uměleckou tvorbu nebo poslech oblíbené hudby. <strong>Třinecký tip:</strong> Najděte si klidné místo u řeky Olše a nechte své myšlenky volně plynout. <strong>Šťastné číslo dne:</strong> 12</p>
+</details>
+        </div>
+
+        <div class="meta">
+            Tento den uložila paměť v údolí pod Beskydami.
+            <div class="footer-names">S láskou a moudrostí, Elen a Jiří | <a href="dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Projekt</a> | <a href="uzivatelska_dokumentace.html" class="docs-link" style="color:var(--accent-color); text-decoration:none; margin-left:8px;">Dokumentace</a></div>
+        </div>
+    </div>
+</body>
+</html>
