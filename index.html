@@ -5,111 +5,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elen | Portfolio</title>
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="hero-section text-center">
-        <h1 class="hero-title">Portfolio</h1>
-
-    </header>
-
-    <div class="container mb-5 portfolio-container">
-        <div class="row justify-content-center g-4">
-
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/tailwindcss/index.html" class="portfolio-item">
-                    <img src="/img/robolab.png" alt="ROBOLAB">
-                    <div class="portfolio-text"><span>ROBOLAB</span></div>
-                </a>
+    <div class="page-wrap">
+        <header class="site-header">
+            <div class="header-left">
+                <h1 class="site-title">PORTFOLIO</h1>
+                <p class="site-subtitle">Elen Cieslarová — webové aplikace, hry a první projekty.</p>
             </div>
+            <a class="header-link" href="https://github.com/cieslarova/elenmindset" target="_blank" rel="noopener noreferrer">
+                GitHub →
+            </a>
+        </header>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/flappy_bird/index.html" class="portfolio-item">
-                    <img src="/img/flappy.png" alt="Flappy Bird">
-                    <div class="portfolio-text"><span>Flappy Bird</span></div>
-                </a>
-            </div>
+        <main class="mosaic" aria-label="Přehled projektů">
+            <!-- Velké (nejnovější / hlavní projekty) -->
+            <a href="eljira/eljir.html" class="tile tile-xl">
+                <img src="img/eljir.png" alt="Eljir.com">
+                <div class="tile-overlay">
+                    <span class="tile-title">Eljir.com</span>
+                    <p class="tile-desc">Lokální denní bulletin pro Třinec a Beskydy s AI agenty, Dockerem a statickým archivem.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/dino_hra/index.html" class="portfolio-item">
-                    <img src="/img/dino.png" alt="Dino hra">
-                    <div class="portfolio-text"><span>Dino hra</span></div>
-                </a>
-            </div>
+            <a href="tailwindcss/index.html" class="tile tile-lg">
+                <img src="img/robolab.png" alt="ROBOLAB">
+                <div class="tile-overlay">
+                    <span class="tile-title">ROBOLAB</span>
+                    <p class="tile-desc">Webový projekt o robotice a programování vytvořený v TailwindCSS a JavaScriptu.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/zachytavac/index.html" class="portfolio-item">
-                    <img src="/img/zachytavac.png" alt="Zachytávač">
-                    <div class="portfolio-text"><span>Zachytávač</span></div>
-                </a>
-            </div>
+            <!-- Střední projekty -->
+            <a href="flappy_bird/index.html" class="tile tile-md">
+                <img src="img/flappy.png" alt="Flappy Bird">
+                <div class="tile-overlay">
+                    <span class="tile-title">Flappy Bird</span>
+                    <p class="tile-desc">Postřehová arkádová hra v JavaScriptu s vlastním ovládáním a počítáním skóre.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/qrcode/index.html" class="portfolio-item">
-                    <img src="/img/QRcode.png" alt="QR Code">
-                    <div class="portfolio-text"><span>QR Code</span></div>
-                </a>
-            </div>
+            <a href="dino_hra/index.html" class="tile tile-md">
+                <img src="img/dino.png" alt="Dino hra">
+                <div class="tile-overlay">
+                    <span class="tile-title">Dino hra</span>
+                    <p class="tile-desc">Nekonečná skákačka přes kaktusy inspirovaná známou hrou z prohlížeče Chrome.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/had/had.html" class="portfolio-item">
-                    <img src="/img/had.png" alt="Had">
-                    <div class="portfolio-text"><span>Had</span></div>
-                </a>
-            </div>
+            <a href="qrcode/index.html" class="tile tile-md">
+                <img src="img/QRcode.png" alt="QR Code">
+                <div class="tile-overlay">
+                    <span class="tile-title">QR Code</span>
+                    <p class="tile-desc">Webový generátor pro okamžité vytvoření vlastního QR kódu z odkazu nebo textu.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/iluminat/ilum.html" class="portfolio-item">
-                    <img src="/img/iluminati.png" alt="Ilumináti">
-                    <div class="portfolio-text"><span>Ilumináti</span></div>
-                </a>
-            </div>
+            <!-- Menší / starší projekty -->
+            <a href="zachytavac/index.html" class="tile tile-sm">
+                <img src="img/zachytavac.png" alt="Zachytávač">
+                <div class="tile-overlay">
+                    <span class="tile-title">Zachytávač</span>
+                    <p class="tile-desc">Postřehová mini-hra v JavaScriptu zaměřená na chytání padajících objektů.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/bootstrap/souhvezdi.html" class="portfolio-item">
-                    <img src="/bootstrap/img/souhvezdi250.jpg" alt="Souhvězdí">
-                    <div class="portfolio-text"><span>Souhvězdí</span></div>
-                </a>
-            </div>
+            <a href="had/had.html" class="tile tile-sm">
+                <img src="img/had.png" alt="Had">
+                <div class="tile-overlay">
+                    <span class="tile-title">Had</span>
+                    <p class="tile-desc">Klasická retro hra Snake naprogramovaná v čistém JavaScriptu.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/lidovky/zkouskalid.html" class="portfolio-item">
-                    <img src="/img/lidovky.png" alt="Lidovky">
-                    <div class="portfolio-text"><span>Lidovky</span></div>
-                </a>
-            </div>
+            <a href="iluminat/ilum.html" class="tile tile-sm">
+                <img src="img/iluminati.png" alt="Ilumináti">
+                <div class="tile-overlay">
+                    <span class="tile-title">Ilumináti</span>
+                    <p class="tile-desc">Vícestránkový tematický web v HTML a CSS o symbolice a mytologii.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/kamen/indexele.html" class="portfolio-item">
-                    <img src="/img/kamen.png" alt="Kámen nůžky papír">
-                    <div class="portfolio-text"><span>Kámen nůžky papír</span></div>
-                </a>
-            </div>
+            <a href="bootstrap/souhvezdi.html" class="tile tile-sm">
+                <img src="bootstrap/img/souhvezdi.jpg" alt="Souhvězdí">
+                <div class="tile-overlay">
+                    <span class="tile-title">Souhvězdí</span>
+                    <p class="tile-desc">Informační stránka o noční obloze a planetách postavená na Bootstrapu.</p>
+                </div>
+            </a>
 
-            <div class="col-12 col-sm-6 col-md-4">
-                <a href="/eljira/eljir.html" class="portfolio-item">
-                    <img src="/img/eljir.png" alt="Eljir.com">
-                    <div class="portfolio-text"><span>Eljir.com</span></div>
-                </a>
-            </div>
+            <a href="lidovky/zkouskalid.html" class="tile tile-sm">
+                <img src="img/lidovky.png" alt="Lidovky">
+                <div class="tile-overlay">
+                    <span class="tile-title">Lidovky</span>
+                    <p class="tile-desc">Cvičný novinový layout zaměřený na rozvržení sloupců a typografii.</p>
+                </div>
+            </a>
 
-        </div>
+            <a href="kamen/indexele.html" class="tile tile-sm">
+                <img src="img/kamen.png" alt="Kámen nůžky papír">
+                <div class="tile-overlay">
+                    <span class="tile-title">Kámen nůžky papír</span>
+                    <p class="tile-desc">Jednoduchá interaktivní mini-hra proti počítači v JavaScriptu.</p>
+                </div>
+            </a>
+        </main>
+
+        <footer class="site-footer">
+            <span>© 2026 EC portfolio</span>
+            <a href="https://github.com/cieslarova/elenmindset" target="_blank" rel="noopener noreferrer">Portfolio GitHub</a>
+        </footer>
     </div>
-
-    <p class=" text-center">Prozkoumejte projekty, na kterých jsem pracovala. Od her až po webové aplikace.</p>
-
-    <footer>
-        <p>© 2025 EC portfolio</p>
-        <a href="https://github.com/cieslarova/elenmindset" target="_blank">Portfolio Github</a>
-    </footer>
 </body>
 
 </html>
