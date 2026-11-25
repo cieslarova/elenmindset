@@ -126,6 +126,11 @@ img {
     grid-row: span 4;
 }
 
+.tile-wide {
+    grid-column: span 6;
+    grid-row: span 3;
+}
+
 .tile-md {
     grid-column: span 4;
     grid-row: span 3;
@@ -133,6 +138,11 @@ img {
 
 .tile-sm {
     grid-column: span 4;
+    grid-row: span 2;
+}
+
+.tile-half {
+    grid-column: span 6;
     grid-row: span 2;
 }
 
@@ -233,12 +243,10 @@ img {
         grid-row: span 1;
     }
 
-    .tile:nth-child(3) {
-        grid-column: span 2;
-    }
-
+    .tile-wide,
     .tile-md,
-    .tile-sm {
+    .tile-sm,
+    .tile-half {
         grid-column: span 1;
         grid-row: span 1;
     }
@@ -258,9 +266,10 @@ img {
 
     .tile-xl,
     .tile-lg,
+    .tile-wide,
     .tile-md,
     .tile-sm,
-    .tile:nth-child(3) {
+    .tile-half {
         grid-column: span 1;
         grid-row: span 1;
     }
